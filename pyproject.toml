@@ -1,0 +1,13 @@
+[project]
+name = "gg24-deepfunding-market-weights"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "David Gasquez", email = "davidgasquez@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "arbitron>=0.5.0",
+    "httpx>=0.28.1",
+]

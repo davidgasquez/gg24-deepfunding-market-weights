@@ -1,0 +1,262 @@
+[
+  {
+    "commits": 414,
+    "contributors": 86,
+    "description": "A fast, secure, and portable multichain light client for Ethereum",
+    "forks": 409,
+    "full_name": "a16z/helios",
+    "html_url": "https://github.com/a16z/helios",
+    "name": "helios",
+    "stars": 2037
+  },
+  {
+    "commits": 2268,
+    "contributors": 240,
+    "description": "Transports, Middleware, and Networks for the Alloy project",
+    "forks": 477,
+    "full_name": "alloy-rs/alloy",
+    "html_url": "https://github.com/alloy-rs/alloy",
+    "name": "alloy",
+    "stars": 1060
+  },
+  {
+    "commits": 1660,
+    "contributors": 84,
+    "description": "Build and explore on-chain w/ Python",
+    "forks": 168,
+    "full_name": "ApeWorX/ape",
+    "html_url": "https://github.com/ApeWorX/ape",
+    "name": "ape",
+    "stars": 1009
+  },
+  {
+    "commits": 10848,
+    "contributors": 140,
+    "description": "\ud83c\udf1f Ethereum Consensus client for the Zig and TypeScript ecosystem",
+    "forks": 408,
+    "full_name": "ChainSafe/lodestar",
+    "html_url": "https://github.com/ChainSafe/lodestar",
+    "name": "lodestar",
+    "stars": 1353
+  },
+  {
+    "commits": 6276,
+    "contributors": 116,
+    "description": "\ud83d\ude80 Open-source Ethereum consensus client written in Java",
+    "forks": 349,
+    "full_name": "Consensys/teku",
+    "html_url": "https://github.com/Consensys/teku",
+    "name": "teku",
+    "stars": 737
+  },
+  {
+    "commits": 29042,
+    "contributors": 1000,
+    "description": "Ethereum implementation on the efficiency frontier ",
+    "forks": 1398,
+    "full_name": "erigontech/erigon",
+    "html_url": "https://github.com/erigontech/erigon",
+    "name": "erigon",
+    "stars": 3451
+  },
+  {
+    "commits": 435,
+    "contributors": 27,
+    "description": null,
+    "forks": 768,
+    "full_name": "eth-infinitism/account-abstraction",
+    "html_url": "https://github.com/eth-infinitism/account-abstraction",
+    "name": "account-abstraction",
+    "stars": 1799
+  },
+  {
+    "commits": 3736,
+    "contributors": 1784,
+    "description": "provides metadata for chains",
+    "forks": 7562,
+    "full_name": "ethereum-lists/chains",
+    "html_url": "https://github.com/ethereum-lists/chains",
+    "name": "chains",
+    "stars": 9793
+  },
+  {
+    "commits": 10828,
+    "contributors": 201,
+    "description": "Ethereum Proof-of-Stake Consensus Specifications",
+    "forks": 1162,
+    "full_name": "ethereum/consensus-specs",
+    "html_url": "https://github.com/ethereum/consensus-specs",
+    "name": "consensus-specs",
+    "stars": 3813
+  },
+  {
+    "commits": 6861,
+    "contributors": 954,
+    "description": "The Ethereum Improvement Proposal repository",
+    "forks": 5883,
+    "full_name": "ethereum/EIPs",
+    "html_url": "https://github.com/ethereum/EIPs",
+    "name": "EIPs",
+    "stars": 13582
+  },
+  {
+    "commits": 2501,
+    "contributors": 28,
+    "description": "Fast Ethereum Virtual Machine implementation",
+    "forks": 331,
+    "full_name": "ipsilon/evmone",
+    "html_url": "https://github.com/ipsilon/evmone",
+    "name": "evmone",
+    "stars": 957
+  },
+  {
+    "commits": 515,
+    "contributors": 79,
+    "description": "Collection of APIs provided by Ethereum execution layer clients ",
+    "forks": 453,
+    "full_name": "ethereum/execution-apis",
+    "html_url": "https://github.com/ethereum/execution-apis",
+    "name": "execution-apis",
+    "stars": 1063
+  },
+  {
+    "commits": 2623,
+    "contributors": 52,
+    "description": "Emerging smart contract language for the Ethereum blockchain.",
+    "forks": 209,
+    "full_name": "argotorg/fe",
+    "html_url": "https://github.com/argotorg/fe",
+    "name": "fe",
+    "stars": 1696
+  },
+  {
+    "commits": 16470,
+    "contributors": 1170,
+    "description": "Go implementation of the Ethereum protocol",
+    "forks": 21414,
+    "full_name": "ethereum/go-ethereum",
+    "html_url": "https://github.com/ethereum/go-ethereum",
+    "name": "go-ethereum",
+    "stars": 50077
+  },
+  {
+    "commits": 3883,
+    "contributors": 95,
+    "description": "A Python implementation of the Ethereum Virtual Machine",
+    "forks": 694,
+    "full_name": "ethereum/py-evm",
+    "html_url": "https://github.com/ethereum/py-evm",
+    "name": "py-evm",
+    "stars": 2358
+  },
+  {
+    "commits": 30361,
+    "contributors": 300,
+    "description": "Remix is a browser-based compiler and IDE that enables users to build Ethereum contracts with Solidity language and to debug transactions.",
+    "forks": 1217,
+    "full_name": "remix-project-org/remix-project",
+    "html_url": "https://github.com/remix-project-org/remix-project",
+    "name": "remix-project",
+    "stars": 2771
+  },
+  {
+    "commits": 25736,
+    "contributors": 801,
+    "description": "Solidity, the Smart Contract Programming Language",
+    "forks": 6233,
+    "full_name": "argotorg/solidity",
+    "html_url": "https://github.com/argotorg/solidity",
+    "name": "solidity",
+    "stars": 25281
+  },
+  {
+    "commits": 3487,
+    "contributors": 158,
+    "description": "Source code verification service for Ethereum smart contracts",
+    "forks": 487,
+    "full_name": "argotorg/sourcify",
+    "html_url": "https://github.com/argotorg/sourcify",
+    "name": "sourcify",
+    "stars": 874
+  },
+  {
+    "commits": 5220,
+    "contributors": 306,
+    "description": "A python interface for interacting with the Ethereum blockchain and ecosystem.",
+    "forks": 1830,
+    "full_name": "ethereum/web3.py",
+    "html_url": "https://github.com/ethereum/web3.py",
+    "name": "web3.py",
+    "stars": 5405
+  },
+  {
+    "commits": 774,
+    "contributors": 1,
+    "description": "Complete Ethereum library and wallet implementation in JavaScript.",
+    "forks": 2028,
+    "full_name": "ethers-io/ethers.js",
+    "html_url": "https://github.com/ethers-io/ethers.js",
+    "name": "ethers.js",
+    "stars": 8524
+  },
+  {
+    "commits": 5540,
+    "contributors": 585,
+    "description": "Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.",
+    "forks": 2200,
+    "full_name": "foundry-rs/foundry",
+    "html_url": "https://github.com/foundry-rs/foundry",
+    "name": "foundry",
+    "stars": 9686
+  },
+  {
+    "commits": 554,
+    "contributors": 13,
+    "description": "High performance Ethereum consensus client",
+    "forks": 65,
+    "full_name": "grandinetech/grandine",
+    "html_url": "https://github.com/grandinetech/grandine",
+    "name": "grandine",
+    "stars": 231
+  },
+  {
+    "commits": 2470,
+    "contributors": 253,
+    "description": "Lightweight Java and Android library for integration with Ethereum clients",
+    "forks": 1767,
+    "full_name": "LFDT-web3j/web3j",
+    "html_url": "https://github.com/LFDT-web3j/web3j",
+    "name": "web3j",
+    "stars": 5343
+  },
+  {
+    "commits": 6187,
+    "contributors": 246,
+    "description": "An enterprise-grade Java-based, Apache 2.0 licensed Ethereum client https://wiki.hyperledger.org/display/besu",
+    "forks": 976,
+    "full_name": "hyperledger/besu",
+    "html_url": "https://github.com/hyperledger/besu",
+    "name": "besu",
+    "stars": 1721
+  },
+  {
+    "commits": 2320,
+    "contributors": 99,
+    "description": "Ethereum .Net cross platform integration library ",
+    "forks": 733,
+    "full_name": "Nethereum/Nethereum",
+    "html_url": "https://github.com/Nethereum/Nethereum",
+    "name": "Nethereum",
+    "stars": 2220
+  },
+  {
+    "commits": 9444,
+    "contributors": 176,
+    "description": "A robust execution client for Ethereum node operators.",
+    "forks": 564,
+    "full_name": "NethermindEth/nethermind",
+    "html_url": "https://github.com/NethermindEth/nethermind",
+    "name": "nethermind",
+    "stars": 1456
+  }
+]
