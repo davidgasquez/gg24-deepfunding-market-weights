@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import argparse
 import asyncio
 import csv
@@ -12,7 +10,6 @@ from typing import Any
 from urllib.parse import parse_qs, urlparse
 
 import httpx
-
 
 RETRYABLE_STATUS = {502, 503, 504}
 MAX_RETRIES = 3
@@ -37,7 +34,9 @@ def parse_repo_slug(raw: str) -> str:
 
     parts = [segment for segment in path.split("/") if segment]
     if len(parts) < 2:
-        raise RepositoryListError(f"Unable to parse repository identifier from '{raw}'.")
+        raise RepositoryListError(
+            f"Unable to parse repository identifier from '{raw}'."
+        )
 
     owner, name = parts[:2]
     return f"{owner}/{name}"
@@ -136,7 +135,9 @@ def extract_count(response: httpx.Response) -> int:
     return 0
 
 
-async def fetch_repository_summary(client: httpx.AsyncClient, slug: str) -> dict[str, Any]:
+async def fetch_repository_summary(
+    client: httpx.AsyncClient, slug: str
+) -> dict[str, Any]:
     repo_resp = await get_with_retries(client, f"/repos/{slug}")
     repo = repo_resp.json()
 
@@ -179,12 +180,21 @@ async def fetch_with_limit(
 
 
 def write_output(data: list[dict[str, Any]], destination: Path) -> None:
-    destination.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    destination.write_text(
+        json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Generate repository context JSON from GitHub metadata.")
-    parser.add_argument("--csv", default="repositories.csv", type=Path, help="Path to repositories.csv file.")
+    parser = argparse.ArgumentParser(
+        description="Generate repository context JSON from GitHub metadata."
+    )
+    parser.add_argument(
+        "--csv",
+        default="repositories.csv",
+        type=Path,
+        help="Path to repositories.csv file.",
+    )
     parser.add_argument(
         "--out",
         default="repository_context.json",
