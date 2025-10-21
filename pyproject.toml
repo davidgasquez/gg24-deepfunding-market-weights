@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [{ name = "David Gasquez", email = "davidgasquez@gmail.com" }]
 requires-python = ">=3.13"
 dependencies = [
-    "arbitron==0.5.3",
+    "arbitron==0.5.5",
     "httpx>=0.28.1",
     "numpy>=2.3.4",
     "pandas>=2.3.3",
