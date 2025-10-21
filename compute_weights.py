@@ -102,7 +102,10 @@ def load_comparisons(path: Path) -> pd.DataFrame:
             msg = f"No CSV files found in directory {path}."
             raise FileNotFoundError(msg)
         frames = [_load_single_csv(file_path) for file_path in csv_files]
-        return pd.concat(frames, ignore_index=True)
+        non_empty_frames = [frame for frame in frames if not frame.empty]
+        if not non_empty_frames:
+            return pd.DataFrame(columns=sorted(REQUIRED_COLUMNS))
+        return pd.concat(non_empty_frames, ignore_index=True)
     msg = f"Input path {path} does not exist."
     raise FileNotFoundError(msg)
 
@@ -423,6 +426,34 @@ def finalize_weights(items: pd.Index, logits: np.ndarray) -> pd.DataFrame:
     )
 
 
+def log_comparison_summary(
+    competition_id: object, *, used: int, total: int
+) -> None:
+    message = f"Comparisons {competition_id}: {used}/{total}"
+    print(message, file=sys.stderr)
+
+
+def _format_metadata(metadata: SolverMetadata) -> str:
+    parts: list[str] = []
+    for key, value in metadata.items():
+        if isinstance(value, float):
+            formatted = f"{value:.3g}"
+        elif isinstance(value, int):
+            formatted = f"{value}"
+        else:  # pragma: no cover - defensive branch
+            formatted = str(value)
+        parts.append(f"{key}={formatted}")
+    return ", ".join(parts)
+
+
+def log_method_status(
+    competition_id: object, method: str, metadata: SolverMetadata | None
+) -> None:
+    details = _format_metadata(metadata) if metadata else ""
+    suffix = f"; {details}" if details else ""
+    print(f"Method {competition_id}/{method}: completed{suffix}", file=sys.stderr)
+
+
 METHOD_BUILDERS: dict[
     WeightMethod, Callable[[pd.DataFrame, pd.Index], SolverOutput]
 ] = {
@@ -469,11 +500,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         if used_count == 0:
             continue
         items = unique_items(clean)
-        dropped = initial_count - used_count
-        print(
-            f"[stats] {competition_id}: {used_count} comparisons used "
-            f"(dropped {dropped}, {len(items)} items)",
-            file=sys.stderr,
+        log_comparison_summary(
+            competition_id,
+            used=used_count,
+            total=initial_count,
         )
         for method in methods:
             logits, metadata = solve_method_logits(clean, items, method)
@@ -485,15 +515,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
             weights = weights[["competition_id", "method", "rank", "item", "weight"]]
             results.append(weights)
-            if metadata:
-                iterations = metadata.get("iterations")
-                grad_norm = metadata.get("gradient_norm")
-                if iterations is not None and grad_norm is not None:
-                    print(
-                        f"[stats] {competition_id}/{method}: "
-                        f"iterations={int(iterations)} gradient_norm={grad_norm:.3e}",
-                        file=sys.stderr,
-                    )
+            log_method_status(competition_id, method, metadata)
 
     if not results:
         print("No valid comparisons found.", file=sys.stderr)
