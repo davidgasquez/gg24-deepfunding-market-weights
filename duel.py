@@ -6,6 +6,7 @@ from pathlib import Path
 from arbitron import Competition, Item, Juror
 from arbitron.pairing import RandomPairsSampler
 from pydantic import BaseModel
+from tqdm import tqdm
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -104,27 +105,28 @@ def stream_to_csv(competition: Competition, csv_path: Path) -> None:
         "comparison_cost",
     ]
 
-    print(f"Total pairs: {competition.total_pairs}")
-    print(f"Total comparisons: {competition.total_comparisons}")
-    print(f"Streaming results to {csv_path}")
-
     with csv_path.open("w", encoding="utf-8", newline="") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
 
-        for comparison in competition.run():
-            writer.writerow({
-                "competition_id": competition.id,
-                "juror_id": comparison.juror_id,
-                "item_a": comparison.item_a,
-                "item_b": comparison.item_b,
-                "winner": comparison.winner,
-                "comparison_created_at": comparison.created_at.isoformat(),
-                "comparison_cost": (
-                    str(comparison.cost) if comparison.cost is not None else ""
-                ),
-            })
-            csvfile.flush()
+        with tqdm(
+            total=competition.total_comparisons,
+            unit="comparison",
+        ) as progress:
+            for comparison in competition.run():
+                writer.writerow({
+                    "competition_id": competition.id,
+                    "juror_id": comparison.juror_id,
+                    "item_a": comparison.item_a,
+                    "item_b": comparison.item_b,
+                    "winner": comparison.winner,
+                    "comparison_created_at": comparison.created_at.isoformat(),
+                    "comparison_cost": (
+                        str(comparison.cost) if comparison.cost is not None else ""
+                    ),
+                })
+                csvfile.flush()
+                progress.update(1)
 
     print(f"Total cost: {competition.cost}")
 
@@ -139,8 +141,8 @@ def main() -> None:
         ),
         jurors=jurors,
         items=items,
-        concurrency=50,
-        pair_sampler=RandomPairsSampler(count=500),
+        concurrency=100,
+        pair_sampler=RandomPairsSampler(count=5000),
     )
 
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
