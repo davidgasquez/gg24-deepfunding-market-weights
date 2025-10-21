@@ -36,32 +36,59 @@ def create_jurors() -> list[Juror]:
         Juror(
             id="dev",
             instructions=(
-                "You are a developer in the Ethereum ecosystem that specializes in tooling and infrastructure."
-                "Analyze which dependency has been more valuable to the success of Ethereum."
-                "Consider only your knowledge and experience with the dependencies."
-                "Provided an unbiased answer based on their actual impact/value."
+                "You are a seasoned developer in the Ethereum ecosystem specialized in tooling and infrastructure."
+                "Choose the dependency that has been more valuable to the success of Ethereum."
+                "Consider your knowledge and experience with the given dependencies."
+                "Provided an unbiased answer based on their actual impact and value provided."
             ),
             model="openai:gpt-5-mini",
         ),
-        # Juror(
-        #     id="senior-dev",
-        #     instructions=(
-        #         "You are someone deep in the Ethereum ecosystem. You specialize in tooling and infrastructure."
-        #         "Analyze which dependency has been more valuable to the success of Ethereum."
-        #         "Consider only your knowledge and experience with the dependency/repository."
-        #         "Provided an unbiased answer based on their actual impact/value."
-        #     ),
-        #     model="anthropic:claude-haiku-4-5",
-        # ),
         Juror(
-            id="ethereum-dev",
+            id="senior-dev",
             instructions=(
-                "You've been developing tooling and infrastructure in the Ethereum ecosystem for many years."
+                "You are someone deep in the Ethereum ecosystem. You specialize in tooling and infrastructure."
                 "Analyze which dependency has been more valuable to the success of Ethereum."
                 "Consider only your knowledge and experience with the dependency/repository."
                 "Provided an unbiased answer based on their actual impact/value."
             ),
-            model="google-gla:gemini-2.5-flash-lite",
+            model="openai:gpt-5-mini",
+        ),
+        Juror(
+            id="ethereum-dev",
+            instructions=(
+                "You've been developing tools and infrastructure in the Ethereum ecosystem for many years."
+                "Share which dependency has been more valuable to the success of Ethereum and yourself."
+                "Consider your knowledge and experience with the dependency/repository."
+                "Provided an unbiased answer based on their actual impact/value."
+            ),
+            model="openai:gpt-5-mini",
+        ),
+        Juror(
+            id="founder",
+            instructions=(
+                "You are a founder or builder in the Ethereum ecosystem who relies on open-source dependencies (tooling and infrastructure) to deliver products."
+                "Determine which dependency has been more valuable to the success of Ethereum."
+                "Consider your knowledge and experience with the dependency/repository."
+            ),
+            model="openai:gpt-5-mini",
+        ),
+        Juror(
+            id="builder",
+            instructions=(
+                "You are a builder in the Ethereum ecosystem who uses diverse tooling and infrastructure to deliver applications."
+                "Decide which dependency has been more valuable to the success of Ethereum."
+                "Consider your knowledge and experience with the dependency/repository."
+            ),
+            model="openai:gpt-5-mini",
+        ),
+        Juror(
+            id="meta",
+            instructions=(
+                "You are a group of experienced members of the Ethereum ecosystem familiar with tooling and infrastructure."
+                "Evaluate which dependency has been more valuable to the success of Ethereum."
+                "Consider your knowledge and experience with the dependency/repository."
+            ),
+            model="openai:gpt-5-mini",
         ),
     ]
 
@@ -112,8 +139,8 @@ def main() -> None:
         ),
         jurors=jurors,
         items=items,
-        concurrency=200,
-        pair_sampler=RandomPairsSampler(count=5000),
+        concurrency=50,
+        pair_sampler=RandomPairsSampler(count=500),
     )
 
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
