@@ -7,6 +7,20 @@
     "github_url": "https://github.com/evmts/krome"
   },
   {
+    "name": "iris-lean",
+    "description": "Lean 4 port of Iris, a higher-order concurrent separation logic framework",
+    "stars": 5,
+    "organization": "Verified-zkEVM",
+    "github_url": "https://github.com/Verified-zkEVM/iris-lean"
+  },
+  {
+    "name": "noir-playground",
+    "description": "A browser-based Noir zero-knowledge proof development environment.",
+    "stars": 13,
+    "organization": "0xandee",
+    "github_url": "https://github.com/0xandee/noir-playground"
+  },
+  {
     "name": "facet-node",
     "description": null,
     "stars": 6,
@@ -19,6 +33,27 @@
     "stars": 696,
     "organization": "0xMiden",
     "github_url": "https://github.com/0xMiden/miden-vm"
+  },
+  {
+    "name": "pil2-proofman",
+    "description": "Prover Manager",
+    "stars": 21,
+    "organization": "0xPolygonHermez",
+    "github_url": "https://github.com/0xPolygonHermez/pil2-proofman"
+  },
+  {
+    "name": "zisk",
+    "description": null,
+    "stars": 129,
+    "organization": "0xPolygonHermez",
+    "github_url": "https://github.com/0xPolygonHermez/zisk"
+  },
+  {
+    "name": "zisk-eth-client",
+    "description": null,
+    "stars": 1,
+    "organization": "0xPolygonHermez",
+    "github_url": "https://github.com/0xPolygonHermez/zisk-eth-client"
   },
   {
     "name": "loop-decoder",
@@ -35,13 +70,6 @@
     "github_url": "https://github.com/a16z/halmos"
   },
   {
-    "name": "helios",
-    "description": "A fast, secure, and portable multichain light client for Ethereum",
-    "stars": 2039,
-    "organization": "a16z",
-    "github_url": "https://github.com/a16z/helios"
-  },
-  {
     "name": "mev-boost-relay",
     "description": "Flashbots mev-boost relay for proposer/builder separation in Ethereum",
     "stars": 1,
@@ -56,53 +84,11 @@
     "github_url": "https://github.com/AgnopraxLab/D2PFuzz"
   },
   {
-    "name": "alloy",
-    "description": "Transports, Middleware, and Networks for the Alloy project",
-    "stars": 1061,
-    "organization": "alloy-rs",
-    "github_url": "https://github.com/alloy-rs/alloy"
-  },
-  {
-    "name": "ape",
-    "description": "Build and explore on-chain w/ Python",
-    "stars": 1009,
-    "organization": "ApeWorX",
-    "github_url": "https://github.com/ApeWorX/ape"
-  },
-  {
-    "name": "act",
-    "description": "Smart contract specification language",
-    "stars": 252,
-    "organization": "argotorg",
-    "github_url": "https://github.com/argotorg/act"
-  },
-  {
-    "name": "fe",
-    "description": "Emerging smart contract language for the Ethereum blockchain.",
-    "stars": 1696,
-    "organization": "argotorg",
-    "github_url": "https://github.com/argotorg/fe"
-  },
-  {
-    "name": "hevm",
-    "description": "Symbolic and concrete EVM execution engine",
-    "stars": 312,
-    "organization": "argotorg",
-    "github_url": "https://github.com/argotorg/hevm"
-  },
-  {
-    "name": "solidity",
-    "description": "Solidity, the Smart Contract Programming Language",
-    "stars": 25283,
-    "organization": "argotorg",
-    "github_url": "https://github.com/argotorg/solidity"
-  },
-  {
-    "name": "sourcify",
-    "description": "Source code verification service for Ethereum smart contracts",
-    "stars": 874,
-    "organization": "argotorg",
-    "github_url": "https://github.com/argotorg/sourcify"
+    "name": "arm-risc0",
+    "description": "Anoma Abstract Resource Machine Implementation using RISC Zero zkVM",
+    "stars": 11,
+    "organization": "anoma",
+    "github_url": "https://github.com/anoma/arm-risc0"
   },
   {
     "name": "algebra",
@@ -140,6 +126,27 @@
     "github_url": "https://github.com/attestantio/vouch"
   },
   {
+    "name": "axiom-api-cli",
+    "description": "CLI interface for Axiom Proving API",
+    "stars": 2,
+    "organization": "axiom-crypto",
+    "github_url": "https://github.com/axiom-crypto/axiom-api-cli"
+  },
+  {
+    "name": "halo2-lib",
+    "description": "Monorepo of halo2 crates",
+    "stars": 294,
+    "organization": "axiom-crypto",
+    "github_url": "https://github.com/axiom-crypto/halo2-lib"
+  },
+  {
+    "name": "openvm-reth-benchmark",
+    "description": null,
+    "stars": 13,
+    "organization": "axiom-crypto",
+    "github_url": "https://github.com/axiom-crypto/openvm-reth-benchmark"
+  },
+  {
     "name": "snark-verifier",
     "description": null,
     "stars": 102,
@@ -147,8 +154,15 @@
     "github_url": "https://github.com/axiom-crypto/snark-verifier"
   },
   {
+    "name": "hash-sig",
+    "description": "Prototype Rust implementation of hash-based signatures. See https://eprint.iacr.org/2025/055.pdf",
+    "stars": 45,
+    "organization": "b-wagn",
+    "github_url": "https://github.com/b-wagn/hash-sig"
+  },
+  {
     "name": "muse",
-    "description": "Create and edit interactive logic models with evidence. Modular Stack of Evidence",
+    "description": "Create and edit interactive logic models with evidence. Modular Stack of Evidence",
     "stars": 2,
     "organization": "beaconlabs-io",
     "github_url": "https://github.com/beaconlabs-io/muse"
@@ -161,11 +175,25 @@
     "github_url": "https://github.com/Blobscan/blobscan"
   },
   {
+    "name": "zeam",
+    "description": "Ethereum Lean client in Zig (wip)",
+    "stars": 69,
+    "organization": "blockblaz",
+    "github_url": "https://github.com/blockblaz/zeam"
+  },
+  {
     "name": "blockscout",
     "description": "Blockchain explorer for Ethereum based network and a tool for inspecting and analyzing EVM based blockchains.",
     "stars": 4243,
     "organization": "blockscout",
     "github_url": "https://github.com/blockscout/blockscout"
+  },
+  {
+    "name": "intents-framework",
+    "description": "ERC-7683 - Intents Framework Monorepo",
+    "stars": 151,
+    "organization": "BootNodeDev",
+    "github_url": "https://github.com/BootNodeDev/intents-framework"
   },
   {
     "name": "steel",
@@ -182,25 +210,11 @@
     "github_url": "https://github.com/brevis-network/Pico-zkCoprocessor"
   },
   {
-    "name": "abi.ninja",
-    "description": "Interact with any contract on Ethereum.",
-    "stars": 217,
-    "organization": "BuidlGuidl",
-    "github_url": "https://github.com/BuidlGuidl/abi.ninja"
-  },
-  {
     "name": "buidlguidl-client",
     "description": "Assist user in running ethereum node",
     "stars": 22,
     "organization": "BuidlGuidl",
     "github_url": "https://github.com/BuidlGuidl/buidlguidl-client"
-  },
-  {
-    "name": "SpeedRunEthereum-v2",
-    "description": "Learn how to build on Ethereum; the superpowers and the gotchas.",
-    "stars": 22,
-    "organization": "BuidlGuidl",
-    "github_url": "https://github.com/BuidlGuidl/SpeedRunEthereum-v2"
   },
   {
     "name": "CertoraProver",
@@ -217,11 +231,11 @@
     "github_url": "https://github.com/ChainSafe/bls"
   },
   {
-    "name": "lodestar",
-    "description": "🌟 Ethereum Consensus client for the Zig and TypeScript ecosystem",
-    "stars": 1354,
-    "organization": "ChainSafe",
-    "github_url": "https://github.com/ChainSafe/lodestar"
+    "name": "trustless-agents-erc-ri",
+    "description": "Reference Implementation for ERC-8004 Trustless Agents, a trust layer for the open agent economy.",
+    "stars": 24,
+    "organization": "ChaosChain",
+    "github_url": "https://github.com/ChaosChain/trustless-agents-erc-ri"
   },
   {
     "name": "circuitscan",
@@ -229,20 +243,6 @@
     "stars": 4,
     "organization": "circuitscan",
     "github_url": "https://github.com/circuitscan/circuitscan"
-  },
-  {
-    "name": "cli",
-    "description": "Deploy and verify your circuits from your shell",
-    "stars": 2,
-    "organization": "circuitscan",
-    "github_url": "https://github.com/circuitscan/cli"
-  },
-  {
-    "name": "coincashew",
-    "description": "Your source for EthPillar, Ethereum Staking, Cardano Stake Pool Guides",
-    "stars": 88,
-    "organization": "coincashew",
-    "github_url": "https://github.com/coincashew/coincashew"
   },
   {
     "name": "EthPillar",
@@ -264,13 +264,6 @@
     "stars": 568,
     "organization": "Consensys",
     "github_url": "https://github.com/Consensys/gnark-crypto"
-  },
-  {
-    "name": "teku",
-    "description": "🚀 Open-source Ethereum consensus client written in Java",
-    "stars": 737,
-    "organization": "Consensys",
-    "github_url": "https://github.com/Consensys/teku"
   },
   {
     "name": "sol-dbg",
@@ -296,16 +289,9 @@
   {
     "name": "aderyn",
     "description": "Solidity Static Analyzer that easily integrates into your editor",
-    "stars": 637,
+    "stars": 638,
     "organization": "Cyfrin",
     "github_url": "https://github.com/Cyfrin/aderyn"
-  },
-  {
-    "name": "Updraft",
-    "description": null,
-    "stars": 103,
-    "organization": "Cyfrin",
-    "github_url": "https://github.com/Cyfrin/Updraft"
   },
   {
     "name": "DAppNode",
@@ -352,7 +338,7 @@
   {
     "name": "solidity-lib",
     "description": "Solarity Solidity Library",
-    "stars": 372,
+    "stars": 373,
     "organization": "dl-solarity",
     "github_url": "https://github.com/dl-solarity/solidity-lib"
   },
@@ -406,20 +392,6 @@
     "github_url": "https://github.com/ephemery-testnet/ephemery-genesis"
   },
   {
-    "name": "erigon",
-    "description": "Ethereum implementation on the efficiency frontier",
-    "stars": 3454,
-    "organization": "erigontech",
-    "github_url": "https://github.com/erigontech/erigon"
-  },
-  {
-    "name": "silkworm",
-    "description": "C++ implementation of the Ethereum protocol",
-    "stars": 309,
-    "organization": "erigontech",
-    "github_url": "https://github.com/erigontech/silkworm"
-  },
-  {
     "name": "hyperplonk",
     "description": null,
     "stars": 314,
@@ -434,13 +406,6 @@
     "github_url": "https://github.com/EspressoSystems/jellyfish"
   },
   {
-    "name": "account-abstraction",
-    "description": null,
-    "stars": 1800,
-    "organization": "eth-infinitism",
-    "github_url": "https://github.com/eth-infinitism/account-abstraction"
-  },
-  {
     "name": "SAManager",
     "description": "A web-based smart contract wallet designed for interoperability and Dapp integration",
     "stars": 1,
@@ -448,67 +413,11 @@
     "github_url": "https://github.com/ethaccount/SAManager"
   },
   {
-    "name": "format",
-    "description": "Smart contract debugging data format – Standards development working group",
-    "stars": 70,
-    "organization": "ethdebug",
-    "github_url": "https://github.com/ethdebug/format"
-  },
-  {
     "name": "eas-contracts",
     "description": "Ethereum Attestation Service https://attest.org",
     "stars": 288,
     "organization": "ethereum-attestation-service",
     "github_url": "https://github.com/ethereum-attestation-service/eas-contracts"
-  },
-  {
-    "name": "eas-indexing-service",
-    "description": "EAS Indexing Service",
-    "stars": 44,
-    "organization": "ethereum-attestation-service",
-    "github_url": "https://github.com/ethereum-attestation-service/eas-indexing-service"
-  },
-  {
-    "name": "chains",
-    "description": "provides metadata for chains",
-    "stars": 9792,
-    "organization": "ethereum-lists",
-    "github_url": "https://github.com/ethereum-lists/chains"
-  },
-  {
-    "name": "consensus-specs",
-    "description": "Ethereum Proof-of-Stake Consensus Specifications",
-    "stars": 3814,
-    "organization": "ethereum",
-    "github_url": "https://github.com/ethereum/consensus-specs"
-  },
-  {
-    "name": "EIPs",
-    "description": "The Ethereum Improvement Proposal repository",
-    "stars": 13581,
-    "organization": "ethereum",
-    "github_url": "https://github.com/ethereum/EIPs"
-  },
-  {
-    "name": "evmone",
-    "description": "Fast Ethereum Virtual Machine implementation",
-    "stars": 958,
-    "organization": "ipsilon",
-    "github_url": "https://github.com/ipsilon/evmone"
-  },
-  {
-    "name": "execution-apis",
-    "description": "Collection of APIs provided by Ethereum execution layer clients",
-    "stars": 1063,
-    "organization": "ethereum",
-    "github_url": "https://github.com/ethereum/execution-apis"
-  },
-  {
-    "name": "go-ethereum",
-    "description": "Go implementation of the Ethereum protocol",
-    "stars": 50088,
-    "organization": "ethereum",
-    "github_url": "https://github.com/ethereum/go-ethereum"
   },
   {
     "name": "js-ethereum-cryptography",
@@ -525,41 +434,6 @@
     "github_url": "https://github.com/ethereum/py_ecc"
   },
   {
-    "name": "py-evm",
-    "description": "A Python implementation of the Ethereum Virtual Machine",
-    "stars": 2357,
-    "organization": "ethereum",
-    "github_url": "https://github.com/ethereum/py-evm"
-  },
-  {
-    "name": "remix-project",
-    "description": "Remix is a browser-based compiler and IDE that enables users to build Ethereum contracts with Solidity language and to debug transactions.",
-    "stars": 2772,
-    "organization": "remix-project-org",
-    "github_url": "https://github.com/remix-project-org/remix-project"
-  },
-  {
-    "name": "research",
-    "description": null,
-    "stars": 1869,
-    "organization": "ethereum",
-    "github_url": "https://github.com/ethereum/research"
-  },
-  {
-    "name": "web3.py",
-    "description": "A python interface for interacting with the Ethereum blockchain and ecosystem.",
-    "stars": 5405,
-    "organization": "ethereum",
-    "github_url": "https://github.com/ethereum/web3.py"
-  },
-  {
-    "name": "ethers.js",
-    "description": "Complete Ethereum library and wallet implementation in JavaScript.",
-    "stars": 8524,
-    "organization": "ethers-io",
-    "github_url": "https://github.com/ethers-io/ethers.js"
-  },
-  {
     "name": "ethgas-preconf-commit-boost-module",
     "description": "Generate BLS signature to register in ETHGas Exchange",
     "stars": 6,
@@ -572,27 +446,6 @@
     "stars": 6,
     "organization": "ethlimo",
     "github_url": "https://github.com/ethlimo/dweb-proxy-api"
-  },
-  {
-    "name": "checkpointz",
-    "description": "An Ethereum beacon chain checkpoint sync provider",
-    "stars": 157,
-    "organization": "ethpandaops",
-    "github_url": "https://github.com/ethpandaops/checkpointz"
-  },
-  {
-    "name": "ethereum-helm-charts",
-    "description": "A set of Helm charts to run multiple components of the Ethereum blockchain on Kubernetes.",
-    "stars": 178,
-    "organization": "ethpandaops",
-    "github_url": "https://github.com/ethpandaops/ethereum-helm-charts"
-  },
-  {
-    "name": "ethereum-package",
-    "description": "A Kurtosis package that deploys a private, portable, and modular Ethereum devnet",
-    "stars": 420,
-    "organization": "ethpandaops",
-    "github_url": "https://github.com/ethpandaops/ethereum-package"
   },
   {
     "name": "eth-docker",
@@ -658,25 +511,11 @@
     "github_url": "https://github.com/flashbots/relay-specs"
   },
   {
-    "name": "foundry",
-    "description": "Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.",
-    "stars": 9686,
-    "organization": "foundry-rs",
-    "github_url": "https://github.com/foundry-rs/foundry"
-  },
-  {
     "name": "helix",
     "description": null,
     "stars": 108,
     "organization": "gattaca-com",
     "github_url": "https://github.com/gattaca-com/helix"
-  },
-  {
-    "name": "grandine",
-    "description": "High performance Ethereum consensus client",
-    "stars": 231,
-    "organization": "grandinetech",
-    "github_url": "https://github.com/grandinetech/grandine"
   },
   {
     "name": "gtp-backend",
@@ -698,6 +537,20 @@
     "stars": 11,
     "organization": "growthepie",
     "github_url": "https://github.com/growthepie/gtp-frontend"
+  },
+  {
+    "name": "bench-hash-in-snark",
+    "description": null,
+    "stars": 6,
+    "organization": "han0110",
+    "github_url": "https://github.com/han0110/bench-hash-in-snark"
+  },
+  {
+    "name": "hash-sig-agg",
+    "description": null,
+    "stars": 11,
+    "organization": "han0110",
+    "github_url": "https://github.com/han0110/hash-sig-agg"
   },
   {
     "name": "plonkish",
@@ -735,18 +588,11 @@
     "github_url": "https://github.com/HorizenLabs/poseidon2"
   },
   {
-    "name": "web3j",
-    "description": "Lightweight Java and Android library for integration with Ethereum clients",
-    "stars": 5345,
-    "organization": "LFDT-web3j",
-    "github_url": "https://github.com/LFDT-web3j/web3j"
-  },
-  {
-    "name": "besu",
-    "description": "An enterprise-grade Java-based, Apache 2.0 licensed Ethereum client https://wiki.hyperledger.org/display/besu",
-    "stars": 1723,
-    "organization": "hyperledger",
-    "github_url": "https://github.com/hyperledger/besu"
+    "name": "ginger-lib",
+    "description": "Ginger-lib is a general purpose zk-SNARK library that supports recursive proof composition",
+    "stars": 85,
+    "organization": "HorizenOfficial",
+    "github_url": "https://github.com/HorizenOfficial/ginger-lib"
   },
   {
     "name": "circomlib",
@@ -798,16 +644,9 @@
     "github_url": "https://github.com/intellij-solidity/intellij-solidity"
   },
   {
-    "name": "py-cid",
-    "description": "Python implementation of the CID specification",
-    "stars": 38,
-    "organization": "ipld",
-    "github_url": "https://github.com/ipld/py-cid"
-  },
-  {
     "name": "account",
     "description": "All you need account for authentication and payments on the web.",
-    "stars": 295,
+    "stars": 296,
     "organization": "ithacaxyz",
     "github_url": "https://github.com/ithacaxyz/account"
   },
@@ -882,25 +721,11 @@
     "github_url": "https://github.com/lambdaclass/cairo_native"
   },
   {
-    "name": "concrete",
-    "description": "Concrete is a simple programming language specifically crafted for creating highly scalable systems that are reliable, efficient, and easy to maintain.",
-    "stars": 304,
-    "organization": "lambdaclass",
-    "github_url": "https://github.com/lambdaclass/concrete"
-  },
-  {
     "name": "ethrex",
     "description": "Minimalist, fast and modular implementation of the Ethereum protocol in Rust. L1 and L2 execution client.",
-    "stars": 597,
+    "stars": 598,
     "organization": "lambdaclass",
     "github_url": "https://github.com/lambdaclass/ethrex"
-  },
-  {
-    "name": "lambda_ethereum_consensus",
-    "description": "Elixir implementation of an Ethereum consensus client, which offers high reliance & fault tolerance",
-    "stars": 109,
-    "organization": "lambdaclass",
-    "github_url": "https://github.com/lambdaclass/lambda_ethereum_consensus"
   },
   {
     "name": "lambdaworks",
@@ -915,13 +740,6 @@
     "stars": 16,
     "organization": "lambdaclass",
     "github_url": "https://github.com/lambdaclass/rex"
-  },
-  {
-    "name": "spawned",
-    "description": "A Rust library for decoupling concurrency from application logic, following the model used by Erlang and the BEAM VM",
-    "stars": 19,
-    "organization": "lambdaclass",
-    "github_url": "https://github.com/lambdaclass/spawned"
   },
   {
     "name": "WAVS",
@@ -952,11 +770,18 @@
     "github_url": "https://github.com/LFDT-web3j/web3j"
   },
   {
-    "name": "py-libp2p",
-    "description": "The Python implementation of the libp2p networking stack 🐍 [under development]",
-    "stars": 561,
+    "name": "libp2p",
+    "description": "A modular and extensible networking stack which solves many challenges of peer-to-peer applications.",
+    "stars": 2849,
     "organization": "libp2p",
-    "github_url": "https://github.com/libp2p/py-libp2p"
+    "github_url": "https://github.com/libp2p/libp2p"
+  },
+  {
+    "name": "lighthouse-package",
+    "description": "cli tool and npm package for interacting with lighthouse",
+    "stars": 18,
+    "organization": "lighthouse-web3",
+    "github_url": "https://github.com/lighthouse-web3/lighthouse-package"
   },
   {
     "name": "light-poseidon",
@@ -974,7 +799,7 @@
   },
   {
     "name": "Pectra-Batch-Contract",
-    "description": "A contract that lets a validator’s withdrawal EOA perform multiple post‑Pectra operations in one atomic, self‑contained transaction.",
+    "description": "A contract that lets a validator’s withdrawal EOA perform multiple post-Pectra operations in one atomic, self-contained transaction.",
     "stars": 5,
     "organization": "Luganodes",
     "github_url": "https://github.com/Luganodes/Pectra-Batch-Contract"
@@ -1001,25 +826,11 @@
     "github_url": "https://github.com/Markeljan/web3gpt"
   },
   {
-    "name": "hodor",
-    "description": "Open source implementation of zkSTARKs in pure Rust",
-    "stars": 83,
-    "organization": "matter-labs",
-    "github_url": "https://github.com/matter-labs/hodor"
-  },
-  {
     "name": "solx",
     "description": "LLVM-based Solidity compiler.",
     "stars": 159,
     "organization": "matter-labs",
     "github_url": "https://github.com/matter-labs/solx"
-  },
-  {
-    "name": "zksync-crypto",
-    "description": "Cryptography libraries for ZKsync",
-    "stars": 35,
-    "organization": "matter-labs",
-    "github_url": "https://github.com/matter-labs/zksync-crypto"
   },
   {
     "name": "armiarma",
@@ -1036,32 +847,39 @@
     "github_url": "https://github.com/migalabs/goteth"
   },
   {
-    "name": "py-multiaddr",
-    "description": "multiaddr implementation in Python",
-    "stars": 35,
-    "organization": "multiformats",
-    "github_url": "https://github.com/multiformats/py-multiaddr"
-  },
-  {
-    "name": "Nethereum",
-    "description": "Ethereum .Net cross platform integration library",
-    "stars": 2220,
-    "organization": "Nethereum",
-    "github_url": "https://github.com/Nethereum/Nethereum"
-  },
-  {
-    "name": "nethermind",
-    "description": "A robust execution client for Ethereum node operators.",
-    "stars": 1459,
+    "name": "Forta-Agents",
+    "description": "Collection of Forta Bots for on-chain anomaly/threat detection",
+    "stars": 118,
     "organization": "NethermindEth",
-    "github_url": "https://github.com/NethermindEth/nethermind"
+    "github_url": "https://github.com/NethermindEth/Forta-Agents"
   },
   {
-    "name": "hardhat",
-    "description": "Hardhat is a development environment to compile, deploy, test, and debug your Ethereum software.",
-    "stars": 8243,
-    "organization": "NomicFoundation",
-    "github_url": "https://github.com/NomicFoundation/hardhat"
+    "name": "juno",
+    "description": "Starknet client implementation.",
+    "stars": 437,
+    "organization": "NethermindEth",
+    "github_url": "https://github.com/NethermindEth/juno"
+  },
+  {
+    "name": "latticefold",
+    "description": "A lattice-based non-interactive folding scheme written in Rust",
+    "stars": 106,
+    "organization": "NethermindEth",
+    "github_url": "https://github.com/NethermindEth/latticefold"
+  },
+  {
+    "name": "nine",
+    "description": "Distributed AI agents that work everywhere with no-code UI",
+    "stars": 72,
+    "organization": "NethermindEth",
+    "github_url": "https://github.com/NethermindEth/nine"
+  },
+  {
+    "name": "sedge",
+    "description": "A one-click setup tool for PoS network/chain validators and nodes.",
+    "stars": 182,
+    "organization": "NethermindEth",
+    "github_url": "https://github.com/NethermindEth/sedge"
   },
   {
     "name": "stylus-sdk-rs",
@@ -1076,6 +894,20 @@
     "stars": 134,
     "organization": "open-rpc",
     "github_url": "https://github.com/open-rpc/client-js"
+  },
+  {
+    "name": "oif-contracts",
+    "description": "Full-stack, modular tooling for anyone to permissionlessly add intents to a new chain",
+    "stars": 39,
+    "organization": "openintentsframework",
+    "github_url": "https://github.com/openintentsframework/oif-contracts"
+  },
+  {
+    "name": "oif-solver",
+    "description": "Open-source solver implementation, tooling, and libraries to easy start filling cross-chain intents.",
+    "stars": 15,
+    "organization": "openintentsframework",
+    "github_url": "https://github.com/openintentsframework/oif-solver"
   },
   {
     "name": "OLI",
@@ -1106,46 +938,11 @@
     "github_url": "https://github.com/openvm-org/stark-backend"
   },
   {
-    "name": "contracts-wizard",
-    "description": "Interactive smart contract generator based on OpenZeppelin Contracts.",
-    "stars": 285,
-    "organization": "OpenZeppelin",
-    "github_url": "https://github.com/OpenZeppelin/contracts-wizard"
-  },
-  {
-    "name": "openzeppelin-contracts",
-    "description": "OpenZeppelin Contracts is a library for secure smart contract development.",
-    "stars": 26635,
-    "organization": "OpenZeppelin",
-    "github_url": "https://github.com/OpenZeppelin/openzeppelin-contracts"
-  },
-  {
-    "name": "openzeppelin-monitor",
-    "description": "A blockchain monitoring service that watches for specific on-chain activities and triggers notifications based on configurable conditions.",
-    "stars": 104,
-    "organization": "OpenZeppelin",
-    "github_url": "https://github.com/OpenZeppelin/openzeppelin-monitor"
-  },
-  {
     "name": "openzeppelin-relayer",
     "description": "OpenZeppelin Relayer",
     "stars": 104,
     "organization": "OpenZeppelin",
     "github_url": "https://github.com/OpenZeppelin/openzeppelin-relayer"
-  },
-  {
-    "name": "safe-utils",
-    "description": "This UI calculates the Safe transaction hashes computing both the domain and messages hashes",
-    "stars": 46,
-    "organization": "OpenZeppelin",
-    "github_url": "https://github.com/OpenZeppelin/safe-utils"
-  },
-  {
-    "name": "ui-builder",
-    "description": "UI Builder is an open-source blockchain development tool that helps developers and non-developers create user-friendly interfaces for smart contract interaction by providing a chain-agnostic form builder that generates standalone \"mini apps\" without requiring backend infrastructure.",
-    "stars": 14,
-    "organization": "OpenZeppelin",
-    "github_url": "https://github.com/OpenZeppelin/ui-builder"
   },
   {
     "name": "orbitdb",
@@ -1160,13 +957,6 @@
     "stars": 1378,
     "organization": "otterscan",
     "github_url": "https://github.com/otterscan/otterscan"
-  },
-  {
-    "name": "reth",
-    "description": "Modular, contributor-friendly and blazing-fast implementation of the Ethereum protocol, in Rust",
-    "stars": 5064,
-    "organization": "paradigmxyz",
-    "github_url": "https://github.com/paradigmxyz/reth"
   },
   {
     "name": "noble-curves",
@@ -1204,11 +994,18 @@
     "github_url": "https://github.com/Perfect-Abstractions/Compose"
   },
   {
-    "name": "pectra-staking-manager",
-    "description": null,
-    "stars": 0,
+    "name": "Lantern.Discv5",
+    "description": "A .NET implementation of the Discv5 protocol.",
+    "stars": 10,
     "organization": "Pier-Two",
-    "github_url": "https://github.com/Pier-Two/pectra-staking-manager"
+    "github_url": "https://github.com/Pier-Two/Lantern.Discv5"
+  },
+  {
+    "name": "Plonky3",
+    "description": "A toolkit for polynomial IOPs (PIOPs)",
+    "stars": 691,
+    "organization": "Plonky3",
+    "github_url": "https://github.com/Plonky3/Plonky3"
   },
   {
     "name": "Expander",
@@ -1233,10 +1030,24 @@
   },
   {
     "name": "Bloxchain-Protocol",
-    "description": "**EXPERIMENTAL SOFTWARE**  Bloxchain Protocol -  smart contract security framework with mandatory multi-signature workflows, time-locked operations, and enterprise-grade access controls powered by our State Abstraction engine technology",
+    "description": "**EXPERIMENTAL SOFTWARE** Bloxchain Protocol - smart contract security framework with mandatory multi-signature workflows, time-locked operations, and enterprise-grade access controls powered by our State Abstraction engine technology",
     "stars": 8,
     "organization": "PracticalParticle",
     "github_url": "https://github.com/PracticalParticle/Bloxchain-Protocol"
+  },
+  {
+    "name": "Ziren",
+    "description": "Ziren(formerly zkMIPS): An open-source, simple, stable, and universal zkVM on MIPS32.",
+    "stars": 95,
+    "organization": "ProjectZKM",
+    "github_url": "https://github.com/ProjectZKM/Ziren"
+  },
+  {
+    "name": "zkm-prover",
+    "description": "A parallel proving service for ZKM.",
+    "stars": 22,
+    "organization": "ProjectZKM",
+    "github_url": "https://github.com/ProjectZKM/zkm-prover"
   },
   {
     "name": "solhint",
@@ -1246,18 +1057,18 @@
     "github_url": "https://github.com/protofire/solhint"
   },
   {
-    "name": "prysm",
-    "description": "Go implementation of Ethereum proof of stake",
-    "stars": 3672,
-    "organization": "OffchainLabs",
-    "github_url": "https://github.com/OffchainLabs/prysm"
-  },
-  {
     "name": "eth.rb",
     "description": "a straightforward library to build, sign, and broadcast ethereum transactions anywhere you can run ruby.",
     "stars": 230,
     "organization": "q9f",
     "github_url": "https://github.com/q9f/eth.rb"
+  },
+  {
+    "name": "qlean-mini",
+    "description": "Lean Ethereum PQ devnet client implementation in C++",
+    "stars": 0,
+    "organization": "qdrvm",
+    "github_url": "https://github.com/qdrvm/qlean-mini"
   },
   {
     "name": "digibastion",
@@ -1267,25 +1078,18 @@
     "github_url": "https://github.com/Raiders0786/digibastion"
   },
   {
+    "name": "ream",
+    "description": "ream: an Ethereum Lean client written in Rust",
+    "stars": 112,
+    "organization": "ReamLabs",
+    "github_url": "https://github.com/ReamLabs/ream"
+  },
+  {
     "name": "recon-extension",
     "description": "Extension to Scaffold, Run and Debug Invariant Tests with Echidna, Medusa, Halmos and Foundry. Open-VSX: https://open-vsx.org/extension/Recon-Fuzz/recon",
     "stars": 14,
     "organization": "Recon-Fuzz",
     "github_url": "https://github.com/Recon-Fuzz/recon-extension"
-  },
-  {
-    "name": "revoke.cash",
-    "description": "❌ Revoke or update your token approvals",
-    "stars": 737,
-    "organization": "RevokeCash",
-    "github_url": "https://github.com/RevokeCash/revoke.cash"
-  },
-  {
-    "name": "risc0",
-    "description": "RISC Zero is a zero-knowledge verifiable general computing platform based on zk-STARKs and the RISC-V microarchitecture.",
-    "stars": 2005,
-    "organization": "risc0",
-    "github_url": "https://github.com/risc0/risc0"
   },
   {
     "name": "risc0-ethereum",
@@ -1307,6 +1111,13 @@
     "stars": 104,
     "organization": "risc0",
     "github_url": "https://github.com/risc0/zirgen"
+  },
+  {
+    "name": "sail-riscv",
+    "description": "Sail RISC-V model",
+    "stars": 615,
+    "organization": "riscv",
+    "github_url": "https://github.com/riscv/sail-riscv"
   },
   {
     "name": "infernet-node",
@@ -1337,32 +1148,11 @@
     "github_url": "https://github.com/rollup-fortress/uncensored"
   },
   {
-    "name": "elliptic-curves",
-    "description": "Collection of pure Rust elliptic curve implementations: NIST P-224, P-256, P-384, P-521, secp256k1, SM2",
-    "stars": 796,
-    "organization": "RustCrypto",
-    "github_url": "https://github.com/RustCrypto/elliptic-curves"
-  },
-  {
-    "name": "safe-smart-account",
-    "description": "Safe allows secure management of blockchain assets.",
-    "stars": 2068,
-    "organization": "safe-global",
-    "github_url": "https://github.com/safe-global/safe-smart-account"
-  },
-  {
-    "name": "scaffold-eth-2",
-    "description": "Open source forkable Ethereum dev stack",
-    "stars": 1831,
-    "organization": "scaffold-eth",
-    "github_url": "https://github.com/scaffold-eth/scaffold-eth-2"
-  },
-  {
-    "name": "drand.py",
-    "description": "Python client to query a drand network for publicly verifiable, unbiased, and unpredictable random values.",
-    "stars": 1,
-    "organization": "seetadev",
-    "github_url": "https://github.com/seetadev/drand.py"
+    "name": "libsnark",
+    "description": "C++ library for zkSNARKs",
+    "stars": 1901,
+    "organization": "scipr-lab",
+    "github_url": "https://github.com/scipr-lab/libsnark"
   },
   {
     "name": "vero",
@@ -1370,6 +1160,13 @@
     "stars": 32,
     "organization": "serenita-org",
     "github_url": "https://github.com/serenita-org/vero"
+  },
+  {
+    "name": "poseidon_hash",
+    "description": "Poseidon hash",
+    "stars": 8,
+    "organization": "shamatar",
+    "github_url": "https://github.com/shamatar/poseidon_hash"
   },
   {
     "name": "whatsabi",
@@ -1384,13 +1181,6 @@
     "stars": 36,
     "organization": "shutter-network",
     "github_url": "https://github.com/shutter-network/rolling-shutter"
-  },
-  {
-    "name": "lighthouse",
-    "description": "Ethereum consensus client in Rust",
-    "stars": 3320,
-    "organization": "sigp",
-    "github_url": "https://github.com/sigp/lighthouse"
   },
   {
     "name": "elliptic-php",
@@ -1428,13 +1218,6 @@
     "github_url": "https://github.com/stake-house/wagyu-key-gen"
   },
   {
-    "name": "nimbus-eth2",
-    "description": "Nim implementation of the Ethereum Beacon Chain",
-    "stars": 630,
-    "organization": "status-im",
-    "github_url": "https://github.com/status-im/nimbus-eth2"
-  },
-  {
     "name": "network",
     "description": "This is the monorepo for the Succinct Prover Network, a protocol on Ethereum that coordinates a distributed network of provers to generate zero knowledge proofs for any piece of software.",
     "stars": 47,
@@ -1457,17 +1240,10 @@
   },
   {
     "name": "sp1",
-    "description": "SP1 is a zero‑knowledge virtual machine that proves the correct execution of programs compiled for the RISC-V architecture.",
+    "description": "SP1 is a zero-knowledge virtual machine that proves the correct execution of programs compiled for the RISC-V architecture.",
     "stars": 1498,
     "organization": "succinctlabs",
     "github_url": "https://github.com/succinctlabs/sp1"
-  },
-  {
-    "name": "sp1-contracts",
-    "description": "Smart contracts for onchain verification of SP1.",
-    "stars": 120,
-    "organization": "succinctlabs",
-    "github_url": "https://github.com/succinctlabs/sp1-contracts"
   },
   {
     "name": "sol2seq",
@@ -1475,13 +1251,6 @@
     "stars": 1,
     "organization": "sumitvekariya",
     "github_url": "https://github.com/sumitvekariya/sol2seq"
-  },
-  {
-    "name": "DeFiHackLabs",
-    "description": "Reproduce DeFi hacked incidents using Foundry.",
-    "stars": 6088,
-    "organization": "SunWeb3Sec",
-    "github_url": "https://github.com/SunWeb3Sec/DeFiHackLabs"
   },
   {
     "name": "blst",
@@ -1503,6 +1272,20 @@
     "stars": 183,
     "organization": "TaceoLabs",
     "github_url": "https://github.com/TaceoLabs/co-snarks"
+  },
+  {
+    "name": "raiko",
+    "description": "Multi-proofs for Taiko. SNARKS, STARKS and Trusted Execution Enclave. Our previous ZK-EVM circuits are deprecated.",
+    "stars": 148,
+    "organization": "taikoxyz",
+    "github_url": "https://github.com/taikoxyz/raiko"
+  },
+  {
+    "name": "taiko-mono",
+    "description": "Taiko Alethia based rollup protocol 🥁",
+    "stars": 4582,
+    "organization": "taikoxyz",
+    "github_url": "https://github.com/taikoxyz/taiko-mono"
   },
   {
     "name": "tlsn",
@@ -1533,9 +1316,16 @@
     "github_url": "https://github.com/TrueBlocks/trueblocks-core"
   },
   {
+    "name": "valida",
+    "description": "A STARK-based VM focused on code reuse, performance, and modularity",
+    "stars": 335,
+    "organization": "valida-xyz",
+    "github_url": "https://github.com/valida-xyz/valida"
+  },
+  {
     "name": "solady",
     "description": "Optimized Solidity snippets.",
-    "stars": 3121,
+    "stars": 3122,
     "organization": "Vectorized",
     "github_url": "https://github.com/Vectorized/solady"
   },
@@ -1547,18 +1337,25 @@
     "github_url": "https://github.com/verifereum/verifereum"
   },
   {
-    "name": "titanoboa",
-    "description": "a vyper interpreter",
-    "stars": 292,
-    "organization": "vyperlang",
-    "github_url": "https://github.com/vyperlang/titanoboa"
+    "name": "ArkLib",
+    "description": "Formally Verified Arguments of Knowledge in Lean",
+    "stars": 119,
+    "organization": "Verified-zkEVM",
+    "github_url": "https://github.com/Verified-zkEVM/ArkLib"
   },
   {
-    "name": "vyper",
-    "description": "Pythonic Smart Contract Language for the EVM",
-    "stars": 5114,
-    "organization": "vyperlang",
-    "github_url": "https://github.com/vyperlang/vyper"
+    "name": "clean",
+    "description": "Lean circuit DSL",
+    "stars": 103,
+    "organization": "Verified-zkEVM",
+    "github_url": "https://github.com/Verified-zkEVM/clean"
+  },
+  {
+    "name": "VCV-io",
+    "description": "Formalized Cryptography Proofs in Lean 4",
+    "stars": 47,
+    "organization": "Verified-zkEVM",
+    "github_url": "https://github.com/Verified-zkEVM/VCV-io"
   },
   {
     "name": "bls",
@@ -1582,25 +1379,11 @@
     "github_url": "https://github.com/wealdtech/ethereal"
   },
   {
-    "name": "viem",
-    "description": "TypeScript Interface for Ethereum",
-    "stars": 3203,
-    "organization": "wevm",
-    "github_url": "https://github.com/wevm/viem"
-  },
-  {
     "name": "clones-with-immutable-args",
     "description": null,
     "stars": 235,
     "organization": "wighawag",
     "github_url": "https://github.com/wighawag/clones-with-immutable-args"
-  },
-  {
-    "name": "forge-exec",
-    "description": "Execute programs from forge with an open 2-way communication channel between both",
-    "stars": 56,
-    "organization": "wighawag",
-    "github_url": "https://github.com/wighawag/forge-exec"
   },
   {
     "name": "hardhat-deploy",
@@ -1610,25 +1393,11 @@
     "github_url": "https://github.com/wighawag/hardhat-deploy"
   },
   {
-    "name": "missiv",
-    "description": null,
-    "stars": 3,
-    "organization": "wighawag",
-    "github_url": "https://github.com/wighawag/missiv"
-  },
-  {
     "name": "elliptic-curve-solidity",
     "description": "Elliptic Curve arithmetic operations written in Solidity",
     "stars": 177,
     "organization": "witnet",
     "github_url": "https://github.com/witnet/elliptic-curve-solidity"
-  },
-  {
-    "name": "halo2",
-    "description": "The Halo2 zero-knowledge proving system",
-    "stars": 839,
-    "organization": "zcash",
-    "github_url": "https://github.com/zcash/halo2"
   },
   {
     "name": "ZoKrates",

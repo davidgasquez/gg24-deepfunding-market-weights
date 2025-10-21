@@ -3,12 +3,13 @@ name = "gg24-deepfunding-market-weights"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-authors = [
-    { name = "David Gasquez", email = "davidgasquez@gmail.com" }
-]
+authors = [{ name = "David Gasquez", email = "davidgasquez@gmail.com" }]
 requires-python = ">=3.13"
 dependencies = [
+    "arbitron==0.5.3",
     "httpx>=0.28.1",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
     "pydantic-ai>=1.2.0",
     "tqdm>=4.67.1",
 ]

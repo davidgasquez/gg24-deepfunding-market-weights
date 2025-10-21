@@ -1,0 +1,127 @@
+import csv
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+
+from arbitron import Competition, Item, Juror
+from arbitron.pairing import RandomPairsSampler
+from pydantic import BaseModel
+
+BASE_DIR = Path(__file__).resolve().parent
+
+
+class RepositoryContext(BaseModel):
+    organization: str
+    name: str
+    description: str | None = None
+    stars: int | None = None
+    github_url: str | None = None
+
+    def to_item(self) -> Item:
+        item_id = f"{self.organization}/{self.name}"
+        return Item(id=item_id, payload=self.model_dump(mode="json"))
+
+
+def load_repository_items() -> list[Item]:
+    context_path = BASE_DIR / "data" / "repository_context.json"
+    with context_path.open("r", encoding="utf-8") as json_file:
+        context_data = json.load(json_file)
+
+    repositories = [RepositoryContext(**entry) for entry in context_data]
+    return [repository.to_item() for repository in repositories]
+
+
+def create_jurors() -> list[Juror]:
+    return [
+        Juror(
+            id="dev",
+            instructions=(
+                "You are a developer in the Ethereum ecosystem that specializes in tooling and infrastructure."
+                "Analyze which dependency has been more valuable to the success of Ethereum."
+                "Consider only your knowledge and experience with the dependencies."
+                "Provided an unbiased answer based on their actual impact/value."
+            ),
+            model="openai:gpt-5-mini",
+        ),
+        # Juror(
+        #     id="senior-dev",
+        #     instructions=(
+        #         "You are someone deep in the Ethereum ecosystem. You specialize in tooling and infrastructure."
+        #         "Analyze which dependency has been more valuable to the success of Ethereum."
+        #         "Consider only your knowledge and experience with the dependency/repository."
+        #         "Provided an unbiased answer based on their actual impact/value."
+        #     ),
+        #     model="anthropic:claude-haiku-4-5",
+        # ),
+        Juror(
+            id="ethereum-dev",
+            instructions=(
+                "You've been developing tooling and infrastructure in the Ethereum ecosystem for many years."
+                "Analyze which dependency has been more valuable to the success of Ethereum."
+                "Consider only your knowledge and experience with the dependency/repository."
+                "Provided an unbiased answer based on their actual impact/value."
+            ),
+            model="google-gla:gemini-2.5-flash-lite",
+        ),
+    ]
+
+
+def stream_to_csv(competition: Competition, csv_path: Path) -> None:
+    fieldnames = [
+        "competition_id",
+        "juror_id",
+        "item_a",
+        "item_b",
+        "winner",
+        "comparison_created_at",
+        "comparison_cost",
+    ]
+
+    print(f"Total pairs: {competition.total_pairs}")
+    print(f"Total comparisons: {competition.total_comparisons}")
+    print(f"Streaming results to {csv_path}")
+
+    with csv_path.open("w", encoding="utf-8", newline="") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+
+        for comparison in competition.run():
+            writer.writerow({
+                "competition_id": competition.id,
+                "juror_id": comparison.juror_id,
+                "item_a": comparison.item_a,
+                "item_b": comparison.item_b,
+                "winner": comparison.winner,
+                "comparison_created_at": comparison.created_at.isoformat(),
+                "comparison_cost": (
+                    str(comparison.cost) if comparison.cost is not None else ""
+                ),
+            })
+            csvfile.flush()
+
+    print(f"Total cost: {competition.cost}")
+
+
+def main() -> None:
+    items = load_repository_items()
+    jurors = create_jurors()
+    competition = Competition(
+        id="gg24",
+        description=(
+            "Which dependency has been more valuable to the success of Ethereum?"
+        ),
+        jurors=jurors,
+        items=items,
+        concurrency=200,
+        pair_sampler=RandomPairsSampler(count=5000),
+    )
+
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    output_dir = BASE_DIR / "data" / "runs"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / f"{timestamp}.csv"
+    stream_to_csv(competition, output_path)
+
+
+if __name__ == "__main__":
+    main()
