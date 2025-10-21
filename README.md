@@ -26,3 +26,19 @@ uv run --env-file .env duel.py
 It'll generate a run file inside `data/runs`. You can then do `make weights` to apply multiple methods to derive weights from those comparisons.
 
 The previous commands will use the [snapshoted repository context](data/repository_context.json). If you want to refresh that, run `uv run generate_repository_context.py data/candidate_repositories.csv --out data/repository_context.json`.
+
+## 📊 Data
+
+Some quick stats on the competition I've run.
+
+- Made **53716 comparisons** across **201 unique repositories** using **6 jurors**
+- Spent **~100 USD in API credits**
+- Comparisons by juror:
+  - `dev` made 25024 comparisons
+  - `meta` made 6600 comparisons
+  - `builder` made 6100 comparisons
+  - `senior-dev` made 5695 comparisons
+  - `founder` made 5600 comparisons
+  - `ethereum-dev` made 4697 comparisons
+- The **most compared** repository was compared **655 times**, while the **least compared** one **431 times**.
+- The repository with the **largest winrate** was `flashbots/mev-boost` with 512 wins out of 518 comparisons! A 98.8% win rate.
