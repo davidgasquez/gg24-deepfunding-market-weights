@@ -4,7 +4,7 @@ This repository contains the code and artifacts used on the initial weights sele
 
 This method uses [Arbitron](https://github.com/davidgasquez/arbitron) to [rank and score](https://davidgasquez.com/ranking-with-agents/) each repository was selected into the round. Each phase worked like this:
 
-1. The [candidate repositories](data/phase_1/candidate_repositories.csv) are slighly expanded with [some metadata](generate_repository_context.py)
+1. The [candidate repositories](data/phase_1/candidate_repositories.csv) are slighly expanded with [some metadata](01_context.py)
 2. A few artificial jurors are created. All with the task of choosing which repository had a larger impact on Ethereum.
 3. A competition is run where jurors choose the winner on more than 50000 random pairwise comparisons.
 4. A rank and relative weight is derived from the comparisons.
@@ -17,15 +17,21 @@ Although the approach is not fully reproducible (most LLM providers don't have a
 - A working Python setup. The easies way to do that is [using `uv`](https://docs.astral.sh/uv/).
 - Proper environment secrets. Set `OPENAI_API_KEY` and other keys (e.g: `GEMINI_API_KEY` or `ANTHROPIC_API_KEY`).
 
-If you have that, you should be able to do something like this:
+If you have that, you should be able to do something like this (examples with `phase_2` data):
 
+```bash
+uv run --env-file .env 02_duel.py data/phase_2/repository_context.json
 ```
-uv run --env-file .env duel.py
+
+It'll generate a run file inside `data/phase_2/runs`. You can then do `make weights` to apply multiple methods to derive weights from those comparisons.
+
+The previous commands will use the [snapshoted repository context](data/phase_1/repository_context.json). If you want to refresh that, run `uv run 01_context.py data/phase_2/candidate_repositories.csv --out data/phase_2/repository_context.json`.
+
+To inspect aggregated results from a set of runs, point the stats script at the directory with CSV outputs:
+
+```bash
+uv run 04_stats.py data/phase_2/runs
 ```
-
-It'll generate a run file inside `data/phase_1/runs`. You can then do `make weights` to apply multiple methods to derive weights from those comparisons.
-
-The previous commands will use the [snapshoted repository context](data/phase_1/repository_context.json). If you want to refresh that, run `uv run generate_repository_context.py data/phase_1/candidate_repositories.csv --out data/phase_1/repository_context.json`.
 
 ## 📊 Data
 

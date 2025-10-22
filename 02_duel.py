@@ -1,3 +1,4 @@
+import argparse
 import csv
 import json
 from datetime import datetime, timezone
@@ -23,8 +24,7 @@ class RepositoryContext(BaseModel):
         return Item(id=item_id, payload=self.model_dump(mode="json"))
 
 
-def load_repository_items() -> list[Item]:
-    context_path = BASE_DIR / "data" / "phase_2" / "repository_context.json"
+def load_repository_items(context_path: Path) -> list[Item]:
     with context_path.open("r", encoding="utf-8") as json_file:
         context_data = json.load(json_file)
 
@@ -131,8 +131,25 @@ def stream_to_csv(competition: Competition, csv_path: Path) -> None:
     print(f"Total cost: {competition.cost}")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Run a head-to-head competition between repositories."
+    )
+    parser.add_argument(
+        "context_path",
+        type=Path,
+        help="Path to the repository context JSON file.",
+    )
+    args = parser.parse_args()
+    args.context_path = args.context_path.expanduser()
+    if not args.context_path.exists():
+        parser.error(f"Context file not found: {args.context_path}")
+    return args
+
+
 def main() -> None:
-    items = load_repository_items()
+    args = parse_args()
+    items = load_repository_items(args.context_path)
     jurors = create_jurors()
     competition = Competition(
         id="gg24",

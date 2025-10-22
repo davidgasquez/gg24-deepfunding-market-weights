@@ -1,12 +1,10 @@
 from __future__ import annotations
 
+import argparse
 import csv
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parent
-RUNS_DIR = BASE_DIR / "data" / "phase_2" / "runs"
 
 
 @dataclass(frozen=True)
@@ -98,11 +96,12 @@ def win_rate_table(
 def print_stats(
     stats: RunStats,
     *,
+    runs_dir: Path,
     top_n: int = 10,
     min_comparisons_for_win_rate: int = 25,
 ) -> None:
     if not stats.files:
-        print(f"No CSV files found in {RUNS_DIR}")
+        print(f"No CSV files found in {runs_dir}")
         return
 
     print(f"Processed {len(stats.files)} run file(s).")
@@ -156,9 +155,46 @@ def print_stats(
         print(f"  {juror}: {count}")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Print summary statistics for competition run CSV files."
+    )
+    parser.add_argument(
+        "runs_path",
+        type=Path,
+        help="Directory containing the competition CSV run files.",
+    )
+    parser.add_argument(
+        "--top-n",
+        type=int,
+        default=10,
+        help="How many repositories to include in the summary tables (default: 10).",
+    )
+    parser.add_argument(
+        "--min-comparisons",
+        type=int,
+        default=25,
+        help="Minimum comparisons required to show a repository in win-rate tables (default: 25).",
+    )
+    args = parser.parse_args()
+    runs_dir = args.runs_path.expanduser()
+    if not runs_dir.exists():
+        parser.error(f"Runs directory not found: {runs_dir}")
+    if not runs_dir.is_dir():
+        parser.error(f"Runs path is not a directory: {runs_dir}")
+    args.runs_path = runs_dir
+    return args
+
+
 def main() -> None:
-    stats = collect_stats(RUNS_DIR)
-    print_stats(stats)
+    args = parse_args()
+    stats = collect_stats(args.runs_path)
+    print_stats(
+        stats,
+        runs_dir=args.runs_path,
+        top_n=args.top_n,
+        min_comparisons_for_win_rate=args.min_comparisons,
+    )
 
 
 if __name__ == "__main__":
