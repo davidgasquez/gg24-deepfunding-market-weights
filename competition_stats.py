@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
-RUNS_DIR = BASE_DIR / "data" / "runs"
+RUNS_DIR = BASE_DIR / "data" / "phase_2" / "runs"
 
 
 @dataclass(frozen=True)
