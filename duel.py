@@ -24,7 +24,7 @@ class RepositoryContext(BaseModel):
 
 
 def load_repository_items() -> list[Item]:
-    context_path = BASE_DIR / "data" / "repository_context.json"
+    context_path = BASE_DIR / "data" / "phase_2" / "repository_context.json"
     with context_path.open("r", encoding="utf-8") as json_file:
         context_data = json.load(json_file)
 
@@ -146,7 +146,7 @@ def main() -> None:
     )
 
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
-    output_dir = BASE_DIR / "data" / "runs"
+    output_dir = BASE_DIR / "data" / "phase_2" / "runs"
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"{timestamp}.csv"
     stream_to_csv(competition, output_path)
