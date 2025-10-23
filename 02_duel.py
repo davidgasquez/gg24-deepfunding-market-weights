@@ -1,11 +1,13 @@
 import argparse
 import csv
 import json
+import random
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Sequence
 
 from arbitron import Competition, Item, Juror
-from arbitron.pairing import RandomPairsSampler
+from arbitron.pairing import PairSampler, RandomPairsSampler
 from pydantic import BaseModel
 from tqdm import tqdm
 
@@ -143,6 +145,18 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         help="Directory where run CSV files will be stored.",
     )
+    parser.add_argument(
+        "--focus-id",
+        type=str,
+        default=None,
+        help="Repository id (organization/name) to include in every comparison.",
+    )
+    parser.add_argument(
+        "--pair-count",
+        type=int,
+        default=2000,
+        help="Number of pairwise comparisons to generate.",
+    )
     args = parser.parse_args()
     args.context_path = args.context_path.expanduser()
     if not args.context_path.exists():
@@ -150,13 +164,66 @@ def parse_args() -> argparse.Namespace:
     args.output_dir = args.output_dir.expanduser()
     if args.output_dir.exists() and not args.output_dir.is_dir():
         parser.error("Output path must be a directory.")
+    if args.pair_count < 1:
+        parser.error("--pair-count must be at least 1.")
     return args
+
+
+class FocusedPairsSampler(PairSampler):
+    """Generate comparisons where a single repository faces random opponents."""
+
+    def __init__(
+        self,
+        focus_id: str,
+        count: int,
+        seed: int | None = None,
+    ) -> None:
+        if count < 1:
+            raise ValueError("count must be at least 1")
+        self._focus_id = focus_id
+        self._count = count
+        self._seed = seed
+
+    def sample(self, items: Sequence[Item]) -> list[tuple[Item, Item]]:
+        id_to_item = {item.id: item for item in items}
+        try:
+            focus_item = id_to_item[self._focus_id]
+        except KeyError as exc:
+            raise ValueError(f"focus item '{self._focus_id}' not found in items") from exc
+
+        opponents = [item for item in items if item.id != self._focus_id]
+        if not opponents:
+            raise ValueError("focus item must have at least one opponent")
+
+        rng = random.Random(self._seed)
+        pairs: list[tuple[Item, Item]] = []
+        for _ in range(self._count):
+            opponent = rng.choice(opponents)
+            if rng.random() < 0.5:
+                pairs.append((focus_item, opponent))
+            else:
+                pairs.append((opponent, focus_item))
+        return pairs
 
 
 def main() -> None:
     args = parse_args()
     items = load_repository_items(args.context_path)
     jurors = create_jurors()
+    if args.focus_id is not None:
+        item_ids = {item.id for item in items}
+        if args.focus_id not in item_ids:
+            sample_ids = ", ".join(sorted(item_ids)[:5])
+            message = f"--focus-id '{args.focus_id}' not found in context."
+            if sample_ids:
+                message += f" Example ids: {sample_ids}"
+            raise SystemExit(message)
+        pair_sampler: PairSampler = FocusedPairsSampler(
+            focus_id=args.focus_id,
+            count=args.pair_count,
+        )
+    else:
+        pair_sampler = RandomPairsSampler(count=args.pair_count)
     competition = Competition(
         id="gg24",
         description=(
@@ -165,7 +232,7 @@ def main() -> None:
         jurors=jurors,
         items=items,
         concurrency=100,
-        pair_sampler=RandomPairsSampler(count=2000),
+        pair_sampler=pair_sampler,
     )
 
     output_dir = args.output_dir

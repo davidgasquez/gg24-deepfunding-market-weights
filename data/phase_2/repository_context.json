@@ -9,14 +9,14 @@
   {
     "name": "blockscout",
     "description": "Blockchain explorer for Ethereum based network and a tool for inspecting and analyzing EVM based blockchains.",
-    "stars": 4243,
+    "stars": 4248,
     "organization": "blockscout",
     "github_url": "https://github.com/blockscout/blockscout"
   },
   {
     "name": "web3j",
     "description": "Lightweight Java and Android library for integration with Ethereum clients",
-    "stars": 5345,
+    "stars": 5346,
     "organization": "LFDT-web3j",
     "github_url": "https://github.com/LFDT-web3j/web3j"
   },
@@ -30,7 +30,7 @@
   {
     "name": "noble-curves",
     "description": "Audited & minimal JS implementation of elliptic curve cryptography.",
-    "stars": 843,
+    "stars": 845,
     "organization": "paulmillr",
     "github_url": "https://github.com/paulmillr/noble-curves"
   },
@@ -51,14 +51,14 @@
   {
     "name": "solhint",
     "description": "Solhint is an open-source project to provide a linting utility for Solidity code.",
-    "stars": 1107,
+    "stars": 1110,
     "organization": "protofire",
     "github_url": "https://github.com/protofire/solhint"
   },
   {
     "name": "l2beat",
     "description": "L2BEAT is an analytics and research website about Ethereum layer two (L2) scaling solutions.",
-    "stars": 614,
+    "stars": 616,
     "organization": "l2beat",
     "github_url": "https://github.com/l2beat/l2beat"
   },
@@ -72,7 +72,7 @@
   {
     "name": "solady",
     "description": "Optimized Solidity snippets.",
-    "stars": 3123,
+    "stars": 3125,
     "organization": "Vectorized",
     "github_url": "https://github.com/Vectorized/solady"
   },
@@ -107,7 +107,7 @@
   {
     "name": "libp2p",
     "description": "A modular and extensible networking stack which solves many challenges of peer-to-peer applications.",
-    "stars": 2847,
+    "stars": 2849,
     "organization": "libp2p",
     "github_url": "https://github.com/libp2p/libp2p"
   },
@@ -121,35 +121,35 @@
   {
     "name": "hardhat-deploy",
     "description": "hardhat deployment plugin",
-    "stars": 1257,
+    "stars": 1258,
     "organization": "wighawag",
     "github_url": "https://github.com/wighawag/hardhat-deploy"
   },
   {
     "name": "eth-docker",
     "description": "Docker automation for Ethereum nodes",
-    "stars": 532,
+    "stars": 533,
     "organization": "ethstaker",
     "github_url": "https://github.com/ethstaker/eth-docker"
   },
   {
     "name": "DefiLlama-Adapters",
     "description": null,
-    "stars": 1062,
+    "stars": 1063,
     "organization": "DefiLlama",
     "github_url": "https://github.com/DefiLlama/DefiLlama-Adapters"
   },
   {
     "name": "chainlist",
     "description": null,
-    "stars": 2792,
+    "stars": 2797,
     "organization": "DefiLlama",
     "github_url": "https://github.com/DefiLlama/chainlist"
   },
   {
     "name": "CertoraProver",
     "description": "The Certora Prover is the state-of-the-art security tool for automated formal verification of smart contracts running on EVM-based chains, Solana and Stellar",
-    "stars": 245,
+    "stars": 246,
     "organization": "Certora",
     "github_url": "https://github.com/Certora/CertoraProver"
   },
@@ -247,14 +247,14 @@
   {
     "name": "sp1",
     "description": "SP1 is a zero-knowledge virtual machine that proves the correct execution of programs compiled for the RISC-V architecture.",
-    "stars": 1499,
+    "stars": 1500,
     "organization": "succinctlabs",
     "github_url": "https://github.com/succinctlabs/sp1"
   },
   {
     "name": "otterscan",
     "description": "A blazingly fast, local, Ethereum block explorer built on top of Erigon",
-    "stars": 1376,
+    "stars": 1377,
     "organization": "otterscan",
     "github_url": "https://github.com/otterscan/otterscan"
   },
@@ -303,14 +303,14 @@
   {
     "name": "edb",
     "description": "EDB: The Ethereum Project Debugger",
-    "stars": 287,
+    "stars": 289,
     "organization": "edb-rs",
     "github_url": "https://github.com/edb-rs/edb"
   },
   {
     "name": "tevm-monorepo",
     "description": "An Ethereum Node built to run in Browser, Bun, Deno, and Node.js",
-    "stars": 408,
+    "stars": 409,
     "organization": "evmts",
     "github_url": "https://github.com/evmts/tevm-monorepo"
   },
@@ -331,7 +331,7 @@
   {
     "name": "stylus-sdk-rs",
     "description": "Rust Smart Contracts on Arbitrum",
-    "stars": 303,
+    "stars": 304,
     "organization": "OffchainLabs",
     "github_url": "https://github.com/OffchainLabs/stylus-sdk-rs"
   },
@@ -358,7 +358,7 @@
   },
   {
     "name": "powdr",
-    "description": "A modular stack for zkVMs, with a focus on productivity, security and performance.",
+    "description": "Performance and security acceleration for zkVMs.",
     "stars": 472,
     "organization": "powdr-labs",
     "github_url": "https://github.com/powdr-labs/powdr"
@@ -387,7 +387,7 @@
   {
     "name": "alloy",
     "description": "Transports, Middleware, and Networks for the Alloy project",
-    "stars": 1062,
+    "stars": 1063,
     "organization": "alloy-rs",
     "github_url": "https://github.com/alloy-rs/alloy"
   },
@@ -401,7 +401,7 @@
   {
     "name": "lodestar",
     "description": "🌟 Ethereum Consensus client for the Zig and TypeScript ecosystem",
-    "stars": 1354,
+    "stars": 1355,
     "organization": "ChainSafe",
     "github_url": "https://github.com/ChainSafe/lodestar"
   },
@@ -415,7 +415,7 @@
   {
     "name": "erigon",
     "description": "Ethereum implementation on the efficiency frontier",
-    "stars": 3455,
+    "stars": 3454,
     "organization": "erigontech",
     "github_url": "https://github.com/erigontech/erigon"
   },
@@ -429,21 +429,21 @@
   {
     "name": "chains",
     "description": "provides metadata for chains",
-    "stars": 9792,
+    "stars": 9794,
     "organization": "ethereum-lists",
     "github_url": "https://github.com/ethereum-lists/chains"
   },
   {
     "name": "consensus-specs",
     "description": "Ethereum Proof-of-Stake Consensus Specifications",
-    "stars": 3817,
+    "stars": 3819,
     "organization": "ethereum",
     "github_url": "https://github.com/ethereum/consensus-specs"
   },
   {
     "name": "EIPs",
     "description": "The Ethereum Improvement Proposal repository",
-    "stars": 13581,
+    "stars": 13587,
     "organization": "ethereum",
     "github_url": "https://github.com/ethereum/EIPs"
   },
@@ -457,7 +457,7 @@
   {
     "name": "execution-apis",
     "description": "Collection of APIs provided by Ethereum execution layer clients",
-    "stars": 1063,
+    "stars": 1062,
     "organization": "ethereum",
     "github_url": "https://github.com/ethereum/execution-apis"
   },
@@ -471,21 +471,21 @@
   {
     "name": "go-ethereum",
     "description": "Go implementation of the Ethereum protocol",
-    "stars": 50097,
+    "stars": 50106,
     "organization": "ethereum",
     "github_url": "https://github.com/ethereum/go-ethereum"
   },
   {
     "name": "remix-project",
     "description": "Remix is a browser-based compiler and IDE that enables users to build Ethereum contracts with Solidity language and to debug transactions.",
-    "stars": 2771,
+    "stars": 2772,
     "organization": "remix-project-org",
     "github_url": "https://github.com/remix-project-org/remix-project"
   },
   {
     "name": "solidity",
     "description": "Solidity, the Smart Contract Programming Language",
-    "stars": 25290,
+    "stars": 25295,
     "organization": "argotorg",
     "github_url": "https://github.com/argotorg/solidity"
   },
@@ -499,35 +499,35 @@
   {
     "name": "web3.py",
     "description": "A python interface for interacting with the Ethereum blockchain and ecosystem.",
-    "stars": 5405,
+    "stars": 5407,
     "organization": "ethereum",
     "github_url": "https://github.com/ethereum/web3.py"
   },
   {
     "name": "ethers.js",
     "description": "Complete Ethereum library and wallet implementation in JavaScript.",
-    "stars": 8528,
+    "stars": 8527,
     "organization": "ethers-io",
     "github_url": "https://github.com/ethers-io/ethers.js"
   },
   {
     "name": "foundry",
     "description": "Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.",
-    "stars": 9692,
+    "stars": 9697,
     "organization": "foundry-rs",
     "github_url": "https://github.com/foundry-rs/foundry"
   },
   {
     "name": "grandine",
     "description": "High performance Ethereum consensus client",
-    "stars": 231,
+    "stars": 233,
     "organization": "grandinetech",
     "github_url": "https://github.com/grandinetech/grandine"
   },
   {
     "name": "web3j",
     "description": "Lightweight Java and Android library for integration with Ethereum clients",
-    "stars": 5345,
+    "stars": 5346,
     "organization": "LFDT-web3j",
     "github_url": "https://github.com/LFDT-web3j/web3j"
   },
@@ -548,28 +548,28 @@
   {
     "name": "nethermind",
     "description": "A robust execution client for Ethereum node operators.",
-    "stars": 1459,
+    "stars": 1458,
     "organization": "NethermindEth",
     "github_url": "https://github.com/NethermindEth/nethermind"
   },
   {
     "name": "hardhat",
     "description": "Hardhat is a development environment to compile, deploy, test, and debug your Ethereum software.",
-    "stars": 8248,
+    "stars": 8249,
     "organization": "NomicFoundation",
     "github_url": "https://github.com/NomicFoundation/hardhat"
   },
   {
     "name": "openzeppelin-contracts",
     "description": "OpenZeppelin Contracts is a library for secure smart contract development.",
-    "stars": 26638,
+    "stars": 26639,
     "organization": "OpenZeppelin",
     "github_url": "https://github.com/OpenZeppelin/openzeppelin-contracts"
   },
   {
     "name": "reth",
     "description": "Modular, contributor-friendly and blazing-fast implementation of the Ethereum protocol, in Rust",
-    "stars": 5069,
+    "stars": 5072,
     "organization": "paradigmxyz",
     "github_url": "https://github.com/paradigmxyz/reth"
   },
@@ -583,21 +583,21 @@
   {
     "name": "safe-smart-account",
     "description": "Safe allows secure management of blockchain assets.",
-    "stars": 2068,
+    "stars": 2067,
     "organization": "safe-global",
     "github_url": "https://github.com/safe-global/safe-smart-account"
   },
   {
     "name": "scaffold-eth-2",
     "description": "Open source forkable Ethereum dev stack",
-    "stars": 1831,
+    "stars": 1832,
     "organization": "scaffold-eth",
     "github_url": "https://github.com/scaffold-eth/scaffold-eth-2"
   },
   {
     "name": "lighthouse",
     "description": "Ethereum consensus client in Rust",
-    "stars": 3319,
+    "stars": 3320,
     "organization": "sigp",
     "github_url": "https://github.com/sigp/lighthouse"
   },
@@ -618,14 +618,14 @@
   {
     "name": "vyper",
     "description": "Pythonic Smart Contract Language for the EVM",
-    "stars": 5114,
+    "stars": 5116,
     "organization": "vyperlang",
     "github_url": "https://github.com/vyperlang/vyper"
   },
   {
     "name": "viem",
     "description": "TypeScript Interface for Ethereum",
-    "stars": 3207,
+    "stars": 3211,
     "organization": "wevm",
     "github_url": "https://github.com/wevm/viem"
   },
@@ -653,14 +653,14 @@
   {
     "name": "ethereum-package",
     "description": "A Kurtosis package that deploys a private, portable, and modular Ethereum devnet",
-    "stars": 421,
+    "stars": 422,
     "organization": "ethpandaops",
     "github_url": "https://github.com/ethpandaops/ethereum-package"
   },
   {
     "name": "ethereum-helm-charts",
     "description": "A set of Helm charts to run multiple components of the Ethereum blockchain on Kubernetes.",
-    "stars": 178,
+    "stars": 177,
     "organization": "ethpandaops",
     "github_url": "https://github.com/ethpandaops/ethereum-helm-charts"
   },
@@ -684,5 +684,12 @@
     "stars": 309,
     "organization": "erigontech",
     "github_url": "https://github.com/erigontech/silkworm"
+  },
+  {
+    "name": "dependency-graph",
+    "description": "Data and docs for Deep Funding's dependency graph",
+    "stars": 24,
+    "organization": "deepfunding",
+    "github_url": "https://github.com/deepfunding/dependency-graph"
   }
 ]
