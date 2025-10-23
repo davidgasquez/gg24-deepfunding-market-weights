@@ -8,16 +8,16 @@ from typing import Literal
 import numpy as np
 import pandas as pd
 
-WeightMethod = Literal["bradley-terry", "huber-log", "elo", "pagerank"]
+WeightMethod = Literal["bradley-terry", "huber-log", "elo", "pagerank", "colley"]
 WEIGHT_METHODS: tuple[WeightMethod, ...] = (
     "bradley-terry",
     "huber-log",
     "elo",
     "pagerank",
+    "colley",
 )
 
 _REQUIRED_COLUMNS = {"competition_id", "item_a", "item_b", "winner"}
-_OPTIONAL_COLUMNS = {"comparison_created_at"}
 
 _MAD_SCALE = 0.6744897501960817
 _IRLS_MAX_ITER = 50
@@ -36,7 +36,7 @@ _BT_TOL = 1e-10
 
 def parse_args(argv=None) -> argparse.Namespace:
     p = argparse.ArgumentParser(
-        description="Compute item ranks and weights from pairwise comparisons."
+        description="Compute item weights from pairwise comparisons."
     )
     p.add_argument(
         "--csv", type=Path, required=True, help="CSV file or directory of CSV files."
@@ -57,7 +57,7 @@ def parse_args(argv=None) -> argparse.Namespace:
 
 def default_out_dir(src: Path) -> Path:
     if src.is_file():
-        return src.with_suffix("").parent / f"{src.stem}_weights"
+        return src.parent / f"{src.stem}_weights"
     if src.is_dir():
         return src / "weights"
     return Path.cwd() / "weights"
@@ -326,6 +326,45 @@ def pagerank_logits(clean: pd.DataFrame, items: pd.Index) -> np.ndarray:
     return logits - logits.mean()
 
 
+def colley_logits(clean: pd.DataFrame, items: pd.Index) -> np.ndarray:
+    n = len(items)
+    idx = {item: i for i, item in enumerate(items)}
+    wins = np.zeros(n, dtype=float)
+    losses = np.zeros(n, dtype=float)
+    games = np.zeros(n, dtype=float)
+    pair_counts: dict[tuple[int, int], int] = {}
+
+    for choice, a, b in clean[["choice", "item_a", "item_b"]].itertuples(
+        index=False, name=None
+    ):
+        i, j = idx[a], idx[b]
+        games[i] += 1.0
+        games[j] += 1.0
+        if int(choice) == 1:
+            wins[i] += 1.0
+            losses[j] += 1.0
+        else:
+            wins[j] += 1.0
+            losses[i] += 1.0
+        key = (i, j) if i < j else (j, i)
+        pair_counts[key] = pair_counts.get(key, 0) + 1
+
+    C = np.zeros((n, n), dtype=float)
+    b = np.zeros(n, dtype=float)
+    for i in range(n):
+        C[i, i] = 2.0 + games[i]
+        b[i] = 1.0 + 0.5 * (wins[i] - losses[i])
+    for (i, j), c in pair_counts.items():
+        C[i, j] -= c
+        C[j, i] -= c
+
+    r = np.linalg.solve(C, b)
+    r = np.clip(r, _EPS, None)
+    logits = np.log(r)
+    logits -= logits.mean()
+    return logits
+
+
 def compute_all_methods(
     prepared: pd.DataFrame, *, bt_temp: float
 ) -> dict[str, pd.DataFrame]:
@@ -344,11 +383,15 @@ def compute_all_methods(
     pr_w = finalize(items, pagerank_logits(clean, items))
     pr_w.insert(0, "method", "pagerank")
 
+    colley_w = finalize(items, colley_logits(clean, items))
+    colley_w.insert(0, "method", "colley")
+
     return {
         "bradley-terry": bt_w,
         "huber-log": huber_w,
         "elo": elo_w,
         "pagerank": pr_w,
+        "colley": colley_w,
     }
 
 
