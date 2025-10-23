@@ -53,14 +53,13 @@ Some quick stats on the two phases.
 
 ### Phase 2
 
-- Made **28518 comparisons** across **97 unique repositories** using **6 jurors**
-- Spent **~35 USD in API credits**
+- Made **40518 comparisons** across **97 unique repositories** using **6 jurors**
+- Spent **~60 USD in API credits**
 - Comparisons by juror:
-  - `dev` made 4753 comparisons
-  - `meta` made 4753 comparisons
-  - `builder` made 4753 comparisons
-  - `senior-dev` made 4753 comparisons
-  - `founder` made 4753 comparisons
-  - `ethereum-dev` made 4753 comparisons
-- The **most compared** repository was `LFDT-web3j/web3j` with **1164** comparisons, while the **least compared** one `otterscan/otterscan` with **582** comparisons.
-- The repository with the **largest win rate** was `argotorg/solidity` with 581 wins out of 582 comparisons, a 99.8% win rate.
+  - `senior-dev` made 6753 comparisons
+  - `dev` made 6753 comparisons
+  - `builder` made 6753 comparisons
+  - `founder` made 6753 comparisons
+  - `meta` made 6753 comparisons
+  - `ethereum-dev` made 6753 comparisons
+- The repository with the **largest win rate** was `argotorg/solidity` with 827 wins out of 828 comparisons, a 99.9% win rate!
