@@ -36,12 +36,17 @@ REQUIRED_COLUMNS = {
     "comparison_cost",
 }
 
+# These only affect prepare_pairs and non-LS/Huber methods.
 _MIN_STRENGTH = 1.2
 _MAX_STRENGTH = 6.0
-_MAD_SCALE = 0.6744897501960817
-_RIDGE_EPS = 1e-6
+
+# Robust stats constants
+_MAD_SCALE = 0.6744897501960817  # Phi^{-1}(0.75)
 _MAX_IRLS_ITER = 75
 _IRLS_TOL = 1e-8
+
+# Bradley–Terry / PageRank / Elo
+_RIDGE_EPS = 1e-6
 _BT_RIDGE_DEFAULT = 0.5
 _ELO_K = 16.0
 _PAGERANK_DAMPING = 0.85
@@ -119,6 +124,8 @@ def prepare_pairs(frame: pd.DataFrame) -> pd.DataFrame:
 
     pairs = pairs[m]
     choice = np.where(pairs["winner"] == pairs["item_a"], 1, 2)
+
+    # Keep multiplier for methods that still use it (e.g., PageRank); LS/Huber ignore it.
     cost = pd.to_numeric(pairs["comparison_cost"], errors="coerce").fillna(0.0)
     strength = np.clip(1.0 + cost.clip(lower=0.0), _MIN_STRENGTH, _MAX_STRENGTH)
     multiplier = np.where(choice == 2, strength, 1.0 / strength).astype(float)
@@ -166,18 +173,22 @@ def unique_items(clean: pd.DataFrame) -> pd.Index:
 def design_matrix(
     clean: pd.DataFrame, items: pd.Index
 ) -> tuple[np.ndarray, np.ndarray]:
-    # Vectorized build of the pairwise design matrix.
+    """
+    Build the classic pairwise-difference system:
+      X @ w ≈ y, where each row encodes (w_b - w_a) and
+      y ∈ {-1, +1}: +1 if item_b wins, -1 if item_a wins.
+    """
     index = {item: i for i, item in enumerate(items)}
-    idx_a = clean["item_a"].map(index).to_numpy(dtype=np.int64)
-    idx_b = clean["item_b"].map(index).to_numpy(dtype=np.int64)
+    ia = clean["item_a"].map(index).to_numpy(dtype=np.int64)
+    ib = clean["item_b"].map(index).to_numpy(dtype=np.int64)
 
     n, m = len(clean), len(items)
     X = np.zeros((n, m), dtype=float)
     rows = np.arange(n, dtype=np.int64)
-    X[rows, idx_b] = 1.0
-    X[rows, idx_a] = -1.0
+    X[rows, ia] = -1.0
+    X[rows, ib] = 1.0
 
-    y = np.log(clean["multiplier"].to_numpy(dtype=float))
+    y = np.where(clean["choice"].to_numpy(dtype=int) == 2, 1.0, -1.0)
     return X, y
 
 
@@ -201,18 +212,6 @@ def finalize_weights(items: pd.Index, logits: np.ndarray) -> pd.DataFrame:
     )
 
 
-def huber_delta(values: np.ndarray) -> float:
-    mad = median_absolute_deviation(values)
-    if not np.isfinite(mad) or mad <= 0:
-        mad = np.mean(np.abs(values - np.mean(values))) if values.size else 1.0
-    if not np.isfinite(mad) or mad <= 0:
-        mad = 1.0
-    sigma = mad / _MAD_SCALE
-    if not np.isfinite(sigma) or sigma <= 0:
-        sigma = 1.0
-    return float(1.345 * sigma)
-
-
 def median_absolute_deviation(values: np.ndarray) -> float:
     if values.size == 0:
         return 0.0
@@ -220,18 +219,15 @@ def median_absolute_deviation(values: np.ndarray) -> float:
     return float(np.median(np.abs(values - med)))
 
 
-def huber_weights(residual: np.ndarray, delta: float) -> np.ndarray:
-    w = np.ones_like(residual, dtype=float)
-    a = np.abs(residual)
-    mask = a > delta
-    w[mask] = delta / np.maximum(a[mask], 1e-12)
-    return w
-
-
 def least_squares_logits(clean: pd.DataFrame, items: pd.Index) -> np.ndarray:
+    """
+    Vanilla least squares on pairwise differences:
+      minimize || X w - y ||_2, with y ∈ {-1, +1}.
+    """
     X, y = design_matrix(clean, items)
-    logits, *_ = np.linalg.lstsq(X, y, rcond=None)
-    return logits
+    w, *_ = np.linalg.lstsq(X, y, rcond=None)
+    w -= w.mean()  # fix identifiability (softmax is shift-invariant)
+    return w
 
 
 def solve_bradley_terry(
@@ -282,24 +278,47 @@ def bradley_terry_regularized_logits(
 
 
 def huber_llsm_logits(clean: pd.DataFrame, items: pd.Index) -> np.ndarray:
+    """
+    Robust least squares via IRLS with Huber weights on {−1,+1} targets.
+    Parameter-free aside from the standard 1.345 factor; no ridge.
+    """
     X, y = design_matrix(clean, items)
-    d = huber_delta(y)
-    w = np.zeros(X.shape[1], dtype=float)
-    identity = np.eye(X.shape[1], dtype=float)
+    # Start from the OLS solution
+    w, *_ = np.linalg.lstsq(X, y, rcond=None)
+    w -= w.mean()
 
     for _ in range(_MAX_IRLS_ITER):
         r = y - X @ w
-        ww = huber_weights(r, d)
-        lhs = X.T @ (ww[:, None] * X) + identity * _RIDGE_EPS
-        rhs = X.T @ (ww * y)
-        w_new = np.linalg.solve(lhs, rhs)
+
+        # Robust scale (MAD) and Huber threshold (standard choice)
+        mad = median_absolute_deviation(r)
+        sigma = (
+            mad / _MAD_SCALE
+            if (np.isfinite(mad) and mad > 0)
+            else np.mean(np.abs(r - np.mean(r)))
+        )
+        if not np.isfinite(sigma) or sigma <= 0:
+            sigma = 1.0
+        delta = 1.345 * float(sigma)
+
+        # Huber weights
+        a = np.abs(r)
+        wts = np.ones_like(r)
+        mask = a > delta
+        wts[mask] = delta / np.maximum(a[mask], 1e-12)
+
+        # Weighted least squares without ridge
+        s = np.sqrt(wts)
+        Xw = X * s[:, None]
+        yw = y * s
+        w_new, *_ = np.linalg.lstsq(Xw, yw, rcond=None)
         w_new -= w_new.mean()
+
         if np.linalg.norm(w_new - w) <= _IRLS_TOL * (1.0 + np.linalg.norm(w)):
             w = w_new
             break
         w = w_new
-    else:
-        w -= w.mean()
+
     return w
 
 

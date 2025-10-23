@@ -53,13 +53,13 @@ Some quick stats on the two phases.
 
 ### Phase 2
 
-- Made **40518 comparisons** across **97 unique repositories** using **6 jurors**
-- Spent **~60 USD in API credits**
+- Made **41418 comparisons** across **98 unique repositories** using **6 jurors**
+- Spent **~51 USD in API credits**
 - Comparisons by juror:
-  - `senior-dev` made 6753 comparisons
-  - `dev` made 6753 comparisons
-  - `builder` made 6753 comparisons
-  - `founder` made 6753 comparisons
-  - `meta` made 6753 comparisons
-  - `ethereum-dev` made 6753 comparisons
+  - `senior-dev` made 6903 comparisons
+  - `dev` made 6903 comparisons
+  - `builder` made 6903 comparisons
+  - `founder` made 6903 comparisons
+  - `meta` made 6903 comparisons
+  - `ethereum-dev` made 6903 comparisons
 - The repository with the **largest win rate** was `argotorg/solidity` with 827 wins out of 828 comparisons, a 99.9% win rate!
