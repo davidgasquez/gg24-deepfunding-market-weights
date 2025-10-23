@@ -9,8 +9,6 @@ from arbitron.pairing import RandomPairsSampler
 from pydantic import BaseModel
 from tqdm import tqdm
 
-BASE_DIR = Path(__file__).resolve().parent
-
 
 class RepositoryContext(BaseModel):
     organization: str
@@ -140,10 +138,18 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         help="Path to the repository context JSON file.",
     )
+    parser.add_argument(
+        "output_dir",
+        type=Path,
+        help="Directory where run CSV files will be stored.",
+    )
     args = parser.parse_args()
     args.context_path = args.context_path.expanduser()
     if not args.context_path.exists():
         parser.error(f"Context file not found: {args.context_path}")
+    args.output_dir = args.output_dir.expanduser()
+    if args.output_dir.exists() and not args.output_dir.is_dir():
+        parser.error("Output path must be a directory.")
     return args
 
 
@@ -159,12 +165,12 @@ def main() -> None:
         jurors=jurors,
         items=items,
         concurrency=100,
-        pair_sampler=RandomPairsSampler(count=5000),
+        pair_sampler=RandomPairsSampler(count=2000),
     )
 
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
-    output_dir = BASE_DIR / "data" / "phase_2" / "runs"
+    output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
     output_path = output_dir / f"{timestamp}.csv"
     stream_to_csv(competition, output_path)
 

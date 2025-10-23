@@ -20,12 +20,12 @@ Although the approach is not fully reproducible (most LLM providers don't have a
 If you have that, you should be able to do something like this (examples with `phase_2` data):
 
 ```bash
-uv run --env-file .env 02_duel.py data/phase_2/repository_context.json
+uv run --env-file .env 02_duel.py data/phase_2/repository_context.json data/phase_2/runs
 ```
 
 It'll generate a run file inside `data/phase_2/runs`. You can then do `make weights` to apply multiple methods to derive weights from those comparisons.
 
-The previous commands will use the [snapshoted repository context](data/phase_1/repository_context.json). If you want to refresh that, run `uv run 01_context.py data/phase_2/candidate_repositories.csv --out data/phase_2/repository_context.json`.
+The previous commands will use the [snapshoted repository context](data/phase_2/repository_context.json). If you want to refresh that, run `uv run --env-file .env 01_context.py data/phase_2/candidate_repositories.csv --out data/phase_2/repository_context.json`.
 
 To inspect aggregated results from a set of runs, point the stats script at the directory with CSV outputs:
 
